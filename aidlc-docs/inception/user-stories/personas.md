@@ -1,39 +1,36 @@
-# Personas — Career-Path Planner
+# Personas — Course & Career Navigator (Combined)
 
-## Primary Persona: "Nam" — the Course-Planning Student
+> Combined inception: merges this repo's "Nam" persona with the dataset+concept "Alex, the Learner". Frontend design (3-page app, profile, radar) is authoritative, so the combined persona keeps Nam's richer journey while broadening coverage to any learner.
+
+## Primary Persona: "Nam / Alex" — the Course-Planning Learner
 
 | Attribute | Detail |
 |---|---|
-| **Name** | Nam |
-| **Role** | University student (also takes online courses) planning toward a career |
-| **Age/Context** | Early 20s, mid-degree, deciding which courses to take next term |
-| **Tech comfort** | Comfortable with web apps; uses laptop and phone interchangeably |
+| **Name** | Nam (a.k.a. Alex) |
+| **Role** | Learner planning toward a career — covers university students, prospective students, and self-learners using open/online courseware |
+| **Context** | Mid-journey, deciding which courses to take next; uses laptop and phone |
+| **Tech comfort** | Comfortable with web apps; not necessarily a CS expert |
 
 ### Goals
-- Figure out which career(s) to aim for based on current interests and completed courses.
-- See, at a glance, how their current skills compare to what a target career requires.
-- Get a concrete, ordered plan of what courses to take and when, without timetable clashes.
+- Decide which career(s) to aim for based on interests + completed courses.
+- See at a glance how current skills compare to a target career (radar).
+- Get a concrete, ordered, clash-free plan of what to take and when.
 - Keep a saved profile so plans persist and can be revisited.
 
 ### Pain Points
-- Course and career information is scattered across catalogs, advisors, and websites.
-- Hard to know which courses actually build the skills a career needs.
-- Prerequisite chains and term scheduling are confusing to untangle manually.
-- No single place that turns "my interests + what I've done" into "what to do next."
+- Course/career information scattered; unclear which courses build which skills.
+- Prerequisite chains and term scheduling are hard to untangle manually.
+- No single place turning "my interests + what I've done" into "what to do next."
 
-### Motivations
-- Wants to make confident, efficient registration decisions.
-- Values a clear visual (radar) and a step-by-step roadmap over dense text.
-
-### How Nam Uses the App
+### How Nam/Alex uses the app
 1. Signs in with a username to load their profile.
-2. On the Landing page, searches and selects completed courses and interests.
-3. Selects one or more careers of interest.
-4. Reads the radar chart comparing required vs. current skills, toggling between careers.
-5. Follows the stepwise study pathway (what to take first, and when).
-6. Saves the plan and manages their profile over time.
+2. On Landing, searches and multi-selects completed courses (university + online) and interests.
+3. Selects one or more careers.
+4. Reads the radar chart (required vs current), toggling between careers.
+5. Follows the stepwise study pathway (what first, and when).
+6. Saves the plan and manages the profile over time.
 
-### Accessibility Needs (applies to all flows)
+### Accessibility Needs (all flows)
 - Keyboard-only navigation with visible focus.
-- Screen-reader-friendly controls and a text/table alternative to the radar chart.
+- Screen-reader-friendly controls; text/table alternative to the radar chart.
 - Information not conveyed by color alone.
