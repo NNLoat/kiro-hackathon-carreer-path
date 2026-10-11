@@ -3,6 +3,7 @@
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
 import type { ReactNode } from "react";
 import type { Profile, ProfileId } from "./types";
+import { apiClient } from "./createApiClient";
 
 const STORAGE_KEY = "cpp.session";
 
@@ -38,13 +39,36 @@ export function SessionProvider({ children }: { children: ReactNode }) {
   const [profileId, setProfileId] = useState<ProfileId | null>(null);
   const [username, setUsername] = useState<string | null>(null);
 
-  // Restore persisted session on mount (BR-3.2).
+  // Restore persisted session on mount (BR-3.2), then revalidate against the backend (BR-3.3):
+  // if the stored profile id no longer exists (e.g. DB was reset, or a stale stub id), clear it.
   useEffect(() => {
     const persisted = readPersisted();
-    if (persisted) {
-      setProfileId(persisted.profileId);
-      setUsername(persisted.username);
-    }
+    if (!persisted) return;
+    setProfileId(persisted.profileId);
+    setUsername(persisted.username);
+
+    let cancelled = false;
+    apiClient
+      .getProfile(persisted.profileId)
+      .then((p) => {
+        if (cancelled) return;
+        // keep in sync with the authoritative record
+        setUsername(p.username);
+      })
+      .catch(() => {
+        if (cancelled) return;
+        // stale/invalid session — clear it so the user is sent back to login
+        setProfileId(null);
+        setUsername(null);
+        try {
+          localStorage.removeItem(STORAGE_KEY);
+        } catch {
+          /* ignore */
+        }
+      });
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   const signIn = (profile: Profile) => {

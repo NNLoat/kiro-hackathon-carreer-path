@@ -18,13 +18,21 @@ const statusMeta: Record<Status, { label: string; className: string; icon: typeo
 // Accessible, interpretable equivalent of the radar (FR-6.4): one progress-to-target row per skill,
 // sorted by largest gap first so the user sees what to work on. The bar fills with CURRENT competency
 // and a marker shows the REQUIRED target — so a fuller bar reading = closer to the goal.
-export function RadarDataTable({ data }: { data: RadarData }) {
+export function RadarDataTable({ data, columns = 1 }: { data: RadarData; columns?: 1 | 2 }) {
   const rows = [...data.axes]
     .map((a) => ({ ...a, gap: Math.max(0, a.required - a.current) }))
     .sort((x, y) => y.gap - x.gap);
 
   return (
-    <ul className="flex flex-col gap-3" data-testid="radar-data-table" aria-label="Skills vs target">
+    <ul
+      className={
+        columns === 2
+          ? "grid grid-cols-1 gap-x-8 gap-y-4 sm:grid-cols-2"
+          : "flex flex-col gap-3"
+      }
+      data-testid="radar-data-table"
+      aria-label="Skills vs target"
+    >
       {rows.map((a) => {
         const status = statusOf(a.current, a.required);
         const meta = statusMeta[status];

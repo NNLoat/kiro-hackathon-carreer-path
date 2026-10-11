@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import { BookOpen, Sparkles, Target, Radar as RadarIcon, Route, Bookmark } from "lucide-react";
 import { useSession } from "../../lib/SessionContext";
 import {
+  useCatalog,
   useProfile,
   useRadar,
   usePathway,
@@ -64,19 +65,33 @@ export function LandingPage() {
   const courseResults = useSearchCourses(courseQ);
   const skillResults = useSearchSkills(skillQ);
   const careerResults = useSearchCareers(careerQ);
+  const catalog = useCatalog();
 
+  // Prefill all three selections from the saved profile once the full catalog is loaded.
+  const [prefilled, setPrefilled] = useState(false);
   useEffect(() => {
     const p = profileQuery.data;
-    if (!p) return;
-    if (p.completedCourseIds.length && courses.length === 0) {
-      const all = courseResults.data ?? [];
-      const resolved = p.completedCourseIds
-        .map((id) => all.find((c) => c.id === id))
-        .filter((c): c is Course => c != null);
-      if (resolved.length) setCourses(resolved);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [profileQuery.data, courseResults.data]);
+    const allCourses = catalog.courses.data;
+    const allSkills = catalog.skills.data;
+    const allCareers = catalog.careers.data;
+    if (prefilled || !p || !allCourses || !allSkills || !allCareers) return;
+
+    const resolvedCourses = p.completedCourseIds
+      .map((id) => allCourses.find((c) => c.id === id))
+      .filter((c): c is Course => c != null);
+    const resolvedSkills = p.interestSkillIds
+      .map((id) => allSkills.find((s) => s.id === id))
+      .filter((s): s is Skill => s != null);
+    const resolvedCareers = p.selectedCareerIds
+      .map((id) => allCareers.find((c) => c.id === id))
+      .filter((c): c is Career => c != null);
+
+    setCourses(resolvedCourses);
+    setSkills(resolvedSkills);
+    setCareers(resolvedCareers);
+    if (resolvedCareers.length > 0) setActiveCareerId(resolvedCareers[0].id);
+    setPrefilled(true);
+  }, [profileQuery.data, catalog.courses.data, catalog.skills.data, catalog.careers.data, prefilled]);
 
   const completedCourseIds = useMemo(() => courses.map((c) => c.id), [courses]);
   const activeCareer = activeCareerId ?? careers[0]?.id ?? null;
@@ -207,12 +222,13 @@ export function LandingPage() {
 
             {radar.isLoading ? <Spinner label="Computing radar" /> : null}
             {radar.data ? (
-              <div className="grid items-start gap-6 md:grid-cols-2">
-                <RadarChart
-                  data={radar.data}
-                  careerLabel={activeCareerObj ? `${activeCareerObj.title} (required)` : "Required"}
-                />
-                <div className="flex flex-col gap-3">
+              <div className="flex flex-col gap-6">
+                {/* Radar: centered, as large as it reads well */}
+                <div className="flex flex-col items-center gap-3">
+                  <RadarChart
+                    data={radar.data}
+                    careerLabel={activeCareerObj ? `${activeCareerObj.title} (required)` : "Required"}
+                  />
                   <div className="flex items-center gap-4 text-xs text-slate-500">
                     <span className="flex items-center gap-1.5">
                       <span className="h-2.5 w-4 rounded-full bg-brand-500" aria-hidden="true" />
@@ -223,7 +239,14 @@ export function LandingPage() {
                       Target
                     </span>
                   </div>
-                  <RadarDataTable data={radar.data} />
+                </div>
+
+                {/* Skills breakdown below the chart, in two columns on wider screens */}
+                <div className="border-t border-slate-100 pt-6">
+                  <h3 className="mb-4 text-sm font-semibold text-slate-700">
+                    Skill-by-skill breakdown
+                  </h3>
+                  <RadarDataTable data={radar.data} columns={2} />
                 </div>
               </div>
             ) : null}

@@ -27,6 +27,7 @@ import type {
   WireSkill,
 } from "./wire";
 import {
+  pathwayResultToWire,
   profilePatchToWire,
   toApiError,
   toCareer,
@@ -144,7 +145,11 @@ export class HttpApiClient implements ApiClient {
   ): Promise<Plan> {
     const w = await request<WirePlan>(`/profiles/${encodeURIComponent(profileId)}/plans`, {
       method: "POST",
-      body: JSON.stringify({ name: plan.name, career_id: plan.careerId, pathway: plan.pathway }),
+      body: JSON.stringify({
+        name: plan.name,
+        career_id: plan.careerId,
+        pathway: pathwayResultToWire(plan.pathway),
+      }),
     });
     return toPlan(w);
   }

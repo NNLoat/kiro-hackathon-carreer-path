@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
-import { CheckCircle2, FolderOpen, Save, User } from "lucide-react";
+import { CheckCircle2, ChevronDown, FolderOpen, Save, User } from "lucide-react";
+import { StudyPathway } from "../landing/StudyPathway";
 import { useSession } from "../../lib/SessionContext";
 import {
+  useCatalog,
   useProfile,
   useUpdateProfile,
   useProfilePlans,
@@ -28,27 +30,31 @@ export function ProfilePage() {
   const [skillQ, setSkillQ] = useState("");
   const [careerQ, setCareerQ] = useState("");
   const [saved, setSaved] = useState(false);
+  const [openPlanId, setOpenPlanId] = useState<string | null>(null);
 
   const courseResults = useSearchCourses(courseQ);
   const skillResults = useSearchSkills(skillQ);
   const careerResults = useSearchCareers(careerQ);
+  const catalog = useCatalog();
 
+  const [prefilled, setPrefilled] = useState(false);
   useEffect(() => {
     const p = profileQuery.data;
-    if (!p) return;
-    const all = courseResults.data ?? [];
+    const allCourses = catalog.courses.data;
+    const allSkills = catalog.skills.data;
+    const allCareers = catalog.careers.data;
+    if (prefilled || !p || !allCourses || !allSkills || !allCareers) return;
+
     setCourses(
       p.completedCourseIds.map(
-        (id) => all.find((c) => c.id === id) ?? ({ id, code: id, title: id } as Course),
+        (id) => allCourses.find((c) => c.id === id) ?? ({ id, code: id, title: id } as Course),
       ),
     );
-    const allSkills = skillResults.data ?? [];
     setSkills(
       p.interestSkillIds.map(
         (id) => allSkills.find((s) => s.id === id) ?? ({ id, name: id, category: "" } as Skill),
       ),
     );
-    const allCareers = careerResults.data ?? [];
     setCareers(
       p.selectedCareerIds.map(
         (id) =>
@@ -56,8 +62,8 @@ export function ProfilePage() {
           ({ id, title: id, description: "", requiredSkills: [] } as Career),
       ),
     );
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [profileQuery.data]);
+    setPrefilled(true);
+  }, [profileQuery.data, catalog.courses.data, catalog.skills.data, catalog.careers.data, prefilled]);
 
   if (profileQuery.isLoading) {
     return (
@@ -176,18 +182,45 @@ export function ProfilePage() {
         ) : null}
         {plansQuery.data && plansQuery.data.length > 0 ? (
           <ul className="flex flex-col gap-2" data-testid="plans-list">
-            {plansQuery.data.map((plan) => (
-              <li
-                key={plan.id}
-                className="flex items-center justify-between rounded-lg border border-slate-200 px-4 py-3"
-                data-testid={`plan-item-${plan.id}`}
-              >
-                <span className="font-medium text-slate-800">{plan.name}</span>
-                <span className="chip bg-slate-100 text-slate-600">
-                  {plan.pathway.steps.length} steps
-                </span>
-              </li>
-            ))}
+            {plansQuery.data.map((plan) => {
+              const open = openPlanId === plan.id;
+              return (
+                <li
+                  key={plan.id}
+                  className="overflow-hidden rounded-lg border border-slate-200"
+                  data-testid={`plan-item-${plan.id}`}
+                >
+                  <button
+                    type="button"
+                    aria-expanded={open}
+                    data-testid={`plan-toggle-${plan.id}`}
+                    onClick={() => setOpenPlanId(open ? null : plan.id)}
+                    className="flex w-full items-center justify-between gap-2 px-4 py-3 text-left transition hover:bg-slate-50"
+                  >
+                    <span className="font-medium text-slate-800">{plan.name}</span>
+                    <span className="flex items-center gap-2">
+                      <span className="chip bg-slate-100 text-slate-600">
+                        {plan.pathway.steps.length} steps
+                      </span>
+                      <ChevronDown
+                        className={
+                          "h-4 w-4 text-slate-400 transition-transform " + (open ? "rotate-180" : "")
+                        }
+                        aria-hidden="true"
+                      />
+                    </span>
+                  </button>
+                  {open ? (
+                    <div
+                      className="border-t border-slate-100 bg-slate-50/50 p-4"
+                      data-testid={`plan-details-${plan.id}`}
+                    >
+                      <StudyPathway result={plan.pathway} />
+                    </div>
+                  ) : null}
+                </li>
+              );
+            })}
           </ul>
         ) : null}
       </section>

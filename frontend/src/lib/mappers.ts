@@ -120,6 +120,35 @@ export function toPathwayResult(w: WirePathwayResult): PathwayResult {
   };
 }
 
+// Inverse of toPathwayResult: UI (camelCase) -> wire (snake_case). Used when saving a plan
+// so the stored JSON matches the contract and reads back correctly.
+export function pathwayResultToWire(p: PathwayResult): WirePathwayResult {
+  return {
+    career_id: p.careerId,
+    steps: p.steps.map((s) => ({
+      order: s.order,
+      term: s.term,
+      courses: s.courses.map((c) => ({
+        course_id: c.courseId,
+        code: c.code,
+        title: c.title,
+        source: c.source,
+        prerequisites: [...c.prerequisites],
+        advances_skills: c.advancesSkills.map((a) => ({
+          skill_id: a.skillId,
+          gap_closed: a.gapClosed,
+        })),
+      })),
+    })),
+    conflicts: p.conflicts.map((c) => ({
+      type: c.type,
+      course_ids: [...c.courseIds],
+      message: c.message,
+    })),
+    fully_schedulable: p.fullySchedulable,
+  };
+}
+
 export function toPlan(w: WirePlan): Plan {
   return {
     id: w.id,

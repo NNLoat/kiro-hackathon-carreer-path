@@ -2,15 +2,20 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { LoginPage } from "../features/auth/LoginPage";
 import { ProfilePage } from "../features/profile/ProfilePage";
 import { LandingPage } from "../features/landing/LandingPage";
-import { RequireProfile } from "./RequireProfile";
-import { AppNav } from "../components/AppNav";
+import { RequireProfile, RedirectIfProfile } from "./RequireProfile";
 
 export function AppRouter() {
   return (
     <BrowserRouter>
-      <AppNav />
       <Routes>
-        <Route path="/login" element={<LoginPage />} />
+        <Route
+          path="/login"
+          element={
+            <RedirectIfProfile>
+              <LoginPage />
+            </RedirectIfProfile>
+          }
+        />
         <Route
           path="/"
           element={

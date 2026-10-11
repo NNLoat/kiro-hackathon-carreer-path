@@ -106,3 +106,12 @@ export function usePathway(input: PathwayInput | null) {
     enabled: !!input,
   });
 }
+
+// Loads the full catalog once (empty query => everything) so pages can resolve profile ids
+// to objects without depending on in-progress search results.
+export function useCatalog() {
+  const skills = useQuery({ queryKey: ["catalog", "all", "skills"], queryFn: () => apiClient.searchSkills("", 100) });
+  const courses = useQuery({ queryKey: ["catalog", "all", "courses"], queryFn: () => apiClient.searchCourses("", undefined, 100) });
+  const careers = useQuery({ queryKey: ["catalog", "all", "careers"], queryFn: () => apiClient.searchCareers("", 100) });
+  return { skills, courses, careers };
+}
