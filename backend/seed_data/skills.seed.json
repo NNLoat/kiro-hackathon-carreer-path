@@ -1,0 +1,147 @@
+[
+  {
+    "id": "SK-001",
+    "name": "Programming Fundamentals",
+    "category": "Software Development Fundamentals"
+  },
+  {
+    "id": "SK-002",
+    "name": "Python Programming",
+    "category": "Programming Languages"
+  },
+  {
+    "id": "SK-003",
+    "name": "C Programming",
+    "category": "Programming Languages"
+  },
+  {
+    "id": "SK-004",
+    "name": "JavaScript Programming",
+    "category": "Programming Languages"
+  },
+  {
+    "id": "SK-005",
+    "name": "SQL & Databases",
+    "category": "Data Management"
+  },
+  {
+    "id": "SK-006",
+    "name": "Data Structures",
+    "category": "Algorithms and Complexity"
+  },
+  {
+    "id": "SK-007",
+    "name": "Algorithm Design & Analysis",
+    "category": "Algorithms and Complexity"
+  },
+  {
+    "id": "SK-008",
+    "name": "Computational Thinking",
+    "category": "Software Development Fundamentals"
+  },
+  {
+    "id": "SK-009",
+    "name": "Object-Oriented Programming",
+    "category": "Software Development Fundamentals"
+  },
+  {
+    "id": "SK-010",
+    "name": "Testing & Debugging",
+    "category": "Software Engineering"
+  },
+  {
+    "id": "SK-011",
+    "name": "Computer Architecture",
+    "category": "Architecture and Organization"
+  },
+  {
+    "id": "SK-012",
+    "name": "Operating Systems",
+    "category": "Systems Fundamentals"
+  },
+  {
+    "id": "SK-013",
+    "name": "Computer Networks",
+    "category": "Networking and Communication"
+  },
+  {
+    "id": "SK-014",
+    "name": "Distributed Systems",
+    "category": "Parallel and Distributed Computing"
+  },
+  {
+    "id": "SK-015",
+    "name": "Cybersecurity",
+    "category": "Security"
+  },
+  {
+    "id": "SK-016",
+    "name": "Web Development",
+    "category": "Software Engineering"
+  },
+  {
+    "id": "SK-017",
+    "name": "Machine Learning",
+    "category": "Artificial Intelligence"
+  },
+  {
+    "id": "SK-018",
+    "name": "Artificial Intelligence Foundations",
+    "category": "Artificial Intelligence"
+  },
+  {
+    "id": "SK-019",
+    "name": "Neural Networks & Deep Learning",
+    "category": "Artificial Intelligence"
+  },
+  {
+    "id": "SK-020",
+    "name": "Natural Language Processing",
+    "category": "Artificial Intelligence"
+  },
+  {
+    "id": "SK-021",
+    "name": "Data Analysis & Statistics",
+    "category": "Mathematical and Statistical Foundations"
+  },
+  {
+    "id": "SK-022",
+    "name": "Probability & Statistics",
+    "category": "Mathematical and Statistical Foundations"
+  },
+  {
+    "id": "SK-023",
+    "name": "Data Visualization",
+    "category": "Data Management"
+  },
+  {
+    "id": "SK-024",
+    "name": "Software Engineering Practices",
+    "category": "Software Engineering"
+  },
+  {
+    "id": "SK-025",
+    "name": "Cloud & Scalability",
+    "category": "Systems Fundamentals"
+  },
+  {
+    "id": "SK-026",
+    "name": "Discrete Mathematics",
+    "category": "Mathematical and Statistical Foundations"
+  },
+  {
+    "id": "SK-027",
+    "name": "R Programming",
+    "category": "Programming Languages"
+  },
+  {
+    "id": "SK-028",
+    "name": "Problem Solving",
+    "category": "Professional Competencies"
+  },
+  {
+    "id": "SK-029",
+    "name": "Digital Logic & Hardware Design",
+    "category": "Architecture and Organization"
+  }
+]

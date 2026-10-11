@@ -19,6 +19,7 @@ RUN --mount=type=cache,target=/root/.cache/uv \
 # Copy application source and install the project
 COPY app ./app
 COPY tests ./tests
+COPY seed_data ./seed_data
 RUN --mount=type=cache,target=/root/.cache/uv \
     uv sync --locked
 

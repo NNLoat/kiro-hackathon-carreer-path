@@ -26,3 +26,6 @@ aidlc-docs/audit.md
 # Workflow agent scratch (not part of deliverable)
 .agents/
 frontend/.agents/
+
+# Local scratch (not for git)
+tmp/
