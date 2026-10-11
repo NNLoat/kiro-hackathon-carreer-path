@@ -1,15 +1,18 @@
 import { useEffect, useState } from "react";
+import { CheckCircle2, FolderOpen, Save, User } from "lucide-react";
 import { useSession } from "../../lib/SessionContext";
-import { useProfile, useUpdateProfile, useProfilePlans } from "../../lib/queryHooks";
-import { Spinner } from "../../components/Spinner";
-import { ErrorState } from "../../components/ErrorState";
-import { Button } from "../../components/Button";
-import { Combobox } from "../../components/Combobox";
 import {
+  useProfile,
+  useUpdateProfile,
+  useProfilePlans,
   useSearchCourses,
   useSearchSkills,
   useSearchCareers,
 } from "../../lib/queryHooks";
+import { Spinner } from "../../components/Spinner";
+import { ErrorState } from "../../components/ErrorState";
+import { Button } from "../../components/Button";
+import { Combobox } from "../../components/Combobox";
 import type { Career, Course, ProfilePatch, Skill } from "../../lib/types";
 
 export function ProfilePage() {
@@ -18,7 +21,6 @@ export function ProfilePage() {
   const update = useUpdateProfile(profileId);
   const plansQuery = useProfilePlans(profileId);
 
-  // Local editable copies of the id lists; resolved to objects for display via searches below.
   const [courses, setCourses] = useState<Course[]>([]);
   const [skills, setSkills] = useState<Skill[]>([]);
   const [careers, setCareers] = useState<Career[]>([]);
@@ -31,12 +33,10 @@ export function ProfilePage() {
   const skillResults = useSearchSkills(skillQ);
   const careerResults = useSearchCareers(careerQ);
 
-  // Hydrate editor selections from the loaded profile once.
   useEffect(() => {
     const p = profileQuery.data;
     if (!p) return;
     const all = courseResults.data ?? [];
-    // Best-effort resolve ids to objects we already have; otherwise keep lightweight stubs.
     setCourses(
       p.completedCourseIds.map(
         (id) => all.find((c) => c.id === id) ?? ({ id, code: id, title: id } as Course),
@@ -61,14 +61,14 @@ export function ProfilePage() {
 
   if (profileQuery.isLoading) {
     return (
-      <main className="p-8">
+      <main className="mx-auto max-w-3xl p-8">
         <Spinner label="Loading profile" />
       </main>
     );
   }
   if (profileQuery.isError || !profileQuery.data) {
     return (
-      <main className="p-8">
+      <main className="mx-auto max-w-3xl p-8">
         <ErrorState message="Could not load your profile." onRetry={() => profileQuery.refetch()} />
       </main>
     );
@@ -87,16 +87,19 @@ export function ProfilePage() {
   }
 
   return (
-    <main className="mx-auto flex max-w-3xl flex-col gap-8 p-6" data-testid="profile-page">
-      <header>
-        <h1 className="text-3xl font-bold text-slate-900">Your Profile</h1>
-        <p className="text-slate-500">
-          Signed in as <span className="font-mono">{profile.username}</span>
-        </p>
+    <main className="mx-auto flex max-w-3xl flex-col gap-6 px-6 py-8" data-testid="profile-page">
+      <header className="flex items-center gap-4">
+        <span className="grid h-14 w-14 place-items-center rounded-2xl bg-brand-600 text-white">
+          <User className="h-7 w-7" aria-hidden="true" />
+        </span>
+        <div>
+          <h1 className="text-2xl font-bold text-slate-900">{profile.username}</h1>
+          <p className="text-sm text-slate-500">Your saved background and plans</p>
+        </div>
       </header>
 
-      <section className="flex flex-col gap-6 rounded-lg border border-slate-200 p-6">
-        <h2 className="text-xl font-semibold">Edit your background</h2>
+      <section className="card flex flex-col gap-6 p-6">
+        <h2 className="text-lg font-semibold text-slate-900">Edit your background</h2>
 
         <Combobox<Course>
           label="Completed courses"
@@ -111,7 +114,6 @@ export function ProfilePage() {
           loading={courseResults.isLoading}
           placeholder="Search courses…"
         />
-
         <Combobox<Skill>
           label="Interests / skills"
           testId="profile-skills"
@@ -125,7 +127,6 @@ export function ProfilePage() {
           loading={skillResults.isLoading}
           placeholder="Search skills…"
         />
-
         <Combobox<Career>
           label="Careers of interest"
           testId="profile-careers"
@@ -140,12 +141,14 @@ export function ProfilePage() {
           placeholder="Search careers…"
         />
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 border-t border-slate-100 pt-4">
           <Button onClick={handleSave} loading={update.isPending} data-testid="profile-save-button">
+            <Save className="h-4 w-4" aria-hidden="true" />
             Save changes
           </Button>
           {saved ? (
-            <span role="status" className="text-sm text-green-600">
+            <span role="status" className="flex items-center gap-1 text-sm font-medium text-accent-600">
+              <CheckCircle2 className="h-4 w-4" aria-hidden="true" />
               Saved
             </span>
           ) : null}
@@ -157,8 +160,11 @@ export function ProfilePage() {
         </div>
       </section>
 
-      <section className="flex flex-col gap-3 rounded-lg border border-slate-200 p-6">
-        <h2 className="text-xl font-semibold">Saved plans</h2>
+      <section className="card flex flex-col gap-3 p-6">
+        <h2 className="flex items-center gap-2 text-lg font-semibold text-slate-900">
+          <FolderOpen className="h-5 w-5 text-brand-600" aria-hidden="true" />
+          Saved plans
+        </h2>
         {plansQuery.isLoading ? <Spinner label="Loading plans" /> : null}
         {plansQuery.isError ? (
           <ErrorState message="Could not load saved plans." onRetry={() => plansQuery.refetch()} />
@@ -173,11 +179,11 @@ export function ProfilePage() {
             {plansQuery.data.map((plan) => (
               <li
                 key={plan.id}
-                className="rounded-md border border-slate-200 px-4 py-2"
+                className="flex items-center justify-between rounded-lg border border-slate-200 px-4 py-3"
                 data-testid={`plan-item-${plan.id}`}
               >
-                <span className="font-medium">{plan.name}</span>
-                <span className="ml-2 text-sm text-slate-500">
+                <span className="font-medium text-slate-800">{plan.name}</span>
+                <span className="chip bg-slate-100 text-slate-600">
                   {plan.pathway.steps.length} steps
                 </span>
               </li>

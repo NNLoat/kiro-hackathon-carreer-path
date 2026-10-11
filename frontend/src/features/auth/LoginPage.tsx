@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { Compass } from "lucide-react";
 import { UsernameForm } from "./UsernameForm";
 import { ErrorState } from "../../components/ErrorState";
 import { useSession } from "../../lib/SessionContext";
@@ -19,20 +20,40 @@ export function LoginPage() {
   }
 
   return (
-    <main className="mx-auto flex min-h-screen max-w-md flex-col justify-center gap-6 p-6">
-      <header className="flex flex-col gap-1 text-center">
-        <h1 className="text-3xl font-bold text-slate-900">Career Path Planner</h1>
-        <p className="text-slate-500">Enter a username to start or resume planning.</p>
-      </header>
+    <main className="flex min-h-screen items-center justify-center p-6">
+      <div className="w-full max-w-md">
+        <div className="mb-6 flex flex-col items-center gap-3 text-center">
+          <span className="grid h-14 w-14 place-items-center rounded-2xl bg-brand-600 text-white shadow-lg shadow-brand-600/30">
+            <Compass className="h-7 w-7" aria-hidden="true" />
+          </span>
+          <h1 className="text-3xl font-bold tracking-tight text-slate-900">CareerPath Planner</h1>
+          <p className="text-slate-500">
+            Map your skills to a career and get a step-by-step study plan.
+          </p>
+        </div>
 
-      <UsernameForm onSubmit={handleSubmit} loading={mutation.isPending} />
+        <div className="card p-6">
+          <h2 className="mb-1 text-lg font-semibold text-slate-900">Welcome</h2>
+          <p className="mb-5 text-sm text-slate-500">
+            Enter a username to start a new plan or resume an existing one.
+          </p>
 
-      {mutation.isError ? (
-        <ErrorState
-          message={mutation.error?.message ?? "Something went wrong"}
-          onRetry={() => mutation.reset()}
-        />
-      ) : null}
+          <UsernameForm onSubmit={handleSubmit} loading={mutation.isPending} />
+
+          {mutation.isError ? (
+            <div className="mt-4">
+              <ErrorState
+                message={mutation.error?.message ?? "Something went wrong"}
+                onRetry={() => mutation.reset()}
+              />
+            </div>
+          ) : null}
+        </div>
+
+        <p className="mt-4 text-center text-xs text-slate-400">
+          No password needed — this is a prototype profile.
+        </p>
+      </div>
     </main>
   );
 }

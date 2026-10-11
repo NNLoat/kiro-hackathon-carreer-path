@@ -1,5 +1,6 @@
 import { useState } from "react";
 import type { FormEvent } from "react";
+import { AtSign } from "lucide-react";
 import { Field } from "../../components/Field";
 import { Button } from "../../components/Button";
 import { validateUsername } from "../../lib/validateUsername";
@@ -29,14 +30,16 @@ export function UsernameForm({ onSubmit, loading }: UsernameFormProps) {
       <Field
         id="username"
         label="Username"
-        placeholder="e.g. nam"
+        placeholder="e.g. oat"
+        hint="3–30 characters: letters, numbers, underscore, hyphen."
+        icon={<AtSign className="h-4 w-4" aria-hidden="true" />}
         value={username}
         error={error}
         autoFocus
         onChange={(e) => setUsername(e.target.value)}
         data-testid="login-username-input"
       />
-      <Button type="submit" loading={loading} data-testid="login-submit-button">
+      <Button type="submit" loading={loading} data-testid="login-submit-button" className="w-full">
         Continue
       </Button>
     </form>

@@ -1,11 +1,10 @@
+import { Loader2 } from "lucide-react";
+
 export function Spinner({ label = "Loading" }: { label?: string }) {
   return (
     <span role="status" aria-live="polite" className="inline-flex items-center gap-2 text-slate-500">
-      <span
-        aria-hidden="true"
-        className="h-4 w-4 animate-spin rounded-full border-2 border-slate-300 border-t-indigo-600"
-      />
-      <span className="sr-only">{label}</span>
+      <Loader2 className="h-4 w-4 animate-spin text-brand-500" aria-hidden="true" />
+      <span className="text-sm">{label}…</span>
     </span>
   );
 }

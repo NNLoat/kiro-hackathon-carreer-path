@@ -1,4 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
+import type { ReactNode } from "react";
+import { BookOpen, Sparkles, Target, Radar as RadarIcon, Route, Bookmark } from "lucide-react";
 import { useSession } from "../../lib/SessionContext";
 import {
   useProfile,
@@ -17,8 +19,38 @@ import { RadarDataTable } from "./RadarDataTable";
 import { StudyPathway } from "./StudyPathway";
 import type { Career, Course, Skill } from "../../lib/types";
 
+function Section({
+  step,
+  icon,
+  title,
+  subtitle,
+  children,
+}: {
+  step: number;
+  icon: ReactNode;
+  title: string;
+  subtitle?: string;
+  children: ReactNode;
+}) {
+  return (
+    <section className="card p-6">
+      <div className="mb-4 flex items-start gap-3">
+        <span className="step-badge mt-0.5">{step}</span>
+        <div>
+          <h2 className="flex items-center gap-2 text-lg font-semibold text-slate-900">
+            {icon}
+            {title}
+          </h2>
+          {subtitle ? <p className="text-sm text-slate-500">{subtitle}</p> : null}
+        </div>
+      </div>
+      {children}
+    </section>
+  );
+}
+
 export function LandingPage() {
-  const { profileId } = useSession();
+  const { profileId, username } = useSession();
   const profileQuery = useProfile(profileId);
 
   const [courses, setCourses] = useState<Course[]>([]);
@@ -33,7 +65,6 @@ export function LandingPage() {
   const skillResults = useSearchSkills(skillQ);
   const careerResults = useSearchCareers(careerQ);
 
-  // Prefill from the saved profile once catalogs are available.
   useEffect(() => {
     const p = profileQuery.data;
     if (!p) return;
@@ -51,152 +82,192 @@ export function LandingPage() {
   const activeCareer = activeCareerId ?? careers[0]?.id ?? null;
 
   const radar = useRadar(activeCareer, completedCourseIds);
-  const pathway = usePathway(
-    activeCareer ? { careerId: activeCareer, completedCourseIds } : null,
-  );
+  const pathway = usePathway(activeCareer ? { careerId: activeCareer, completedCourseIds } : null);
   const savePlan = useSavePlan(profileId);
   const [savedMsg, setSavedMsg] = useState<string | null>(null);
-
   const activeCareerObj = careers.find((c) => c.id === activeCareer);
 
   return (
-    <main className="mx-auto flex max-w-4xl flex-col gap-8 p-6" data-testid="landing-page">
-      <header>
-        <h1 className="text-3xl font-bold text-slate-900">Plan your path</h1>
-        <p className="text-slate-500">
-          Pick what you've done and where you want to go — we'll chart the gaps and the route.
+    <div className="mx-auto flex max-w-4xl flex-col gap-6 px-6 py-8">
+      <header className="rounded-2xl bg-gradient-to-br from-brand-600 to-brand-800 p-8 text-white shadow-lg shadow-brand-600/20">
+        <p className="section-eyebrow text-brand-100">
+          <Sparkles className="h-4 w-4" aria-hidden="true" /> Your plan
+        </p>
+        <h1 className="mt-1 text-3xl font-bold tracking-tight">
+          Hi {username}, let's chart your path
+        </h1>
+        <p className="mt-1 max-w-xl text-brand-100">
+          Tell us what you've studied and where you want to go. We'll show your skill gaps and the
+          exact courses to take, in order.
         </p>
       </header>
 
-      <section className="grid gap-6 rounded-lg border border-slate-200 p-6 sm:grid-cols-2">
-        <Combobox<Course>
-          label="Completed courses"
-          testId="course-selector"
-          items={courseResults.data ?? []}
-          selected={courses}
-          getId={(c) => c.id}
-          getLabel={(c) => `${c.code} — ${c.title}`}
-          onAdd={(c) => setCourses((p) => [...p, c])}
-          onRemove={(c) => setCourses((p) => p.filter((x) => x.id !== c.id))}
-          onQueryChange={setCourseQ}
-          loading={courseResults.isLoading}
-          placeholder="Search courses…"
-        />
-        <Combobox<Skill>
-          label="Interests / skills"
-          testId="skill-selector"
-          items={skillResults.data ?? []}
-          selected={skills}
-          getId={(s) => s.id}
-          getLabel={(s) => s.name}
-          onAdd={(s) => setSkills((p) => [...p, s])}
-          onRemove={(s) => setSkills((p) => p.filter((x) => x.id !== s.id))}
-          onQueryChange={setSkillQ}
-          loading={skillResults.isLoading}
-          placeholder="Search skills…"
-        />
-        <div className="sm:col-span-2">
-          <Combobox<Career>
-            label="Careers of interest"
-            testId="career-selector"
-            items={careerResults.data ?? []}
-            selected={careers}
+      <Section
+        step={1}
+        icon={<BookOpen className="h-5 w-5 text-brand-600" aria-hidden="true" />}
+        title="Your background"
+        subtitle="Add the courses you've completed and the skills you're interested in."
+      >
+        <div className="grid gap-6 sm:grid-cols-2">
+          <Combobox<Course>
+            label="Completed courses"
+            testId="course-selector"
+            items={courseResults.data ?? []}
+            selected={courses}
             getId={(c) => c.id}
-            getLabel={(c) => c.title}
-            onAdd={(c) => {
-              setCareers((p) => [...p, c]);
-              setActiveCareerId((cur) => cur ?? c.id);
-            }}
-            onRemove={(c) => {
-              setCareers((p) => p.filter((x) => x.id !== c.id));
-              setActiveCareerId((cur) => (cur === c.id ? null : cur));
-            }}
-            onQueryChange={setCareerQ}
-            loading={careerResults.isLoading}
-            placeholder="Search careers…"
+            getLabel={(c) => `${c.code} — ${c.title}`}
+            onAdd={(c) => setCourses((p) => [...p, c])}
+            onRemove={(c) => setCourses((p) => p.filter((x) => x.id !== c.id))}
+            onQueryChange={setCourseQ}
+            loading={courseResults.isLoading}
+            placeholder="Search courses…"
+          />
+          <Combobox<Skill>
+            label="Interests / skills"
+            testId="skill-selector"
+            items={skillResults.data ?? []}
+            selected={skills}
+            getId={(s) => s.id}
+            getLabel={(s) => s.name}
+            onAdd={(s) => setSkills((p) => [...p, s])}
+            onRemove={(s) => setSkills((p) => p.filter((x) => x.id !== s.id))}
+            onQueryChange={setSkillQ}
+            loading={skillResults.isLoading}
+            placeholder="Search skills…"
           />
         </div>
-      </section>
+      </Section>
+
+      <Section
+        step={2}
+        icon={<Target className="h-5 w-5 text-brand-600" aria-hidden="true" />}
+        title="Target career"
+        subtitle="Pick one or more careers you're aiming for."
+      >
+        <Combobox<Career>
+          label="Careers of interest"
+          testId="career-selector"
+          items={careerResults.data ?? []}
+          selected={careers}
+          getId={(c) => c.id}
+          getLabel={(c) => c.title}
+          onAdd={(c) => {
+            setCareers((p) => [...p, c]);
+            setActiveCareerId((cur) => cur ?? c.id);
+          }}
+          onRemove={(c) => {
+            setCareers((p) => p.filter((x) => x.id !== c.id));
+            setActiveCareerId((cur) => (cur === c.id ? null : cur));
+          }}
+          onQueryChange={setCareerQ}
+          loading={careerResults.isLoading}
+          placeholder="Search careers…"
+        />
+      </Section>
 
       {careers.length === 0 ? (
-        <p className="text-slate-500" data-testid="landing-no-career">
-          Select at least one career to see your skills radar and study pathway.
-        </p>
+        <div className="card flex flex-col items-center gap-2 p-10 text-center" data-testid="landing-no-career">
+          <span className="grid h-12 w-12 place-items-center rounded-full bg-brand-50 text-brand-600">
+            <Target className="h-6 w-6" aria-hidden="true" />
+          </span>
+          <p className="font-medium text-slate-700">Pick a target career to see your results</p>
+          <p className="text-sm text-slate-500">
+            Your skills radar and a step-by-step study pathway will appear here.
+          </p>
+        </div>
       ) : (
         <>
-          <section className="flex flex-col gap-4 rounded-lg border border-slate-200 p-6">
-            <div className="flex flex-wrap items-center justify-between gap-3">
-              <h2 className="text-xl font-semibold">Skills: required vs you</h2>
-              {careers.length > 1 ? (
-                <div className="flex gap-2" role="tablist" aria-label="Career">
-                  {careers.map((c) => (
-                    <button
-                      key={c.id}
-                      role="tab"
-                      aria-selected={activeCareer === c.id}
-                      data-testid={`career-toggle-${c.id}`}
-                      onClick={() => setActiveCareerId(c.id)}
-                      className={
-                        "rounded-full px-3 py-1 text-sm " +
-                        (activeCareer === c.id
-                          ? "bg-indigo-600 text-white"
-                          : "bg-slate-100 text-slate-700 hover:bg-slate-200")
-                      }
-                    >
-                      {c.title}
-                    </button>
-                  ))}
-                </div>
-              ) : null}
-            </div>
+          <Section
+            step={3}
+            icon={<RadarIcon className="h-5 w-5 text-brand-600" aria-hidden="true" />}
+            title="Skills: required vs you"
+            subtitle="How your current competency compares to what the career needs."
+          >
+            {careers.length > 1 ? (
+              <div className="mb-4 flex flex-wrap gap-2" role="tablist" aria-label="Career">
+                {careers.map((c) => (
+                  <button
+                    key={c.id}
+                    role="tab"
+                    aria-selected={activeCareer === c.id}
+                    data-testid={`career-toggle-${c.id}`}
+                    onClick={() => setActiveCareerId(c.id)}
+                    className={
+                      "rounded-full px-3 py-1.5 text-sm font-medium transition " +
+                      (activeCareer === c.id
+                        ? "bg-brand-600 text-white"
+                        : "bg-slate-100 text-slate-700 hover:bg-slate-200")
+                    }
+                  >
+                    {c.title}
+                  </button>
+                ))}
+              </div>
+            ) : null}
 
             {radar.isLoading ? <Spinner label="Computing radar" /> : null}
             {radar.data ? (
-              <div className="grid gap-6 md:grid-cols-2">
+              <div className="grid items-start gap-6 md:grid-cols-2">
                 <RadarChart
                   data={radar.data}
                   careerLabel={activeCareerObj ? `${activeCareerObj.title} (required)` : "Required"}
                 />
-                <RadarDataTable data={radar.data} />
+                <div className="flex flex-col gap-3">
+                  <div className="flex items-center gap-4 text-xs text-slate-500">
+                    <span className="flex items-center gap-1.5">
+                      <span className="h-2.5 w-4 rounded-full bg-brand-500" aria-hidden="true" />
+                      Your level
+                    </span>
+                    <span className="flex items-center gap-1.5">
+                      <span className="h-3 w-0.5 bg-slate-700" aria-hidden="true" />
+                      Target
+                    </span>
+                  </div>
+                  <RadarDataTable data={radar.data} />
+                </div>
               </div>
             ) : null}
-          </section>
+          </Section>
 
-          <section className="flex flex-col gap-4 rounded-lg border border-slate-200 p-6">
-            <div className="flex items-center justify-between">
-              <h2 className="text-xl font-semibold">Your study pathway</h2>
-              {pathway.data && pathway.data.steps.length > 0 ? (
-                <div className="flex items-center gap-2">
-                  <Button
-                    data-testid="save-plan-button"
-                    loading={savePlan.isPending}
-                    onClick={() => {
-                      if (!activeCareerObj || !pathway.data) return;
-                      savePlan.mutate(
-                        {
-                          name: `${activeCareerObj.title} plan`,
-                          careerId: activeCareerObj.id,
-                          pathway: pathway.data,
-                        },
-                        { onSuccess: () => setSavedMsg("Plan saved to your profile") },
-                      );
-                    }}
-                  >
-                    Save plan
-                  </Button>
-                  {savedMsg ? (
-                    <span role="status" className="text-sm text-green-600">
-                      {savedMsg}
-                    </span>
-                  ) : null}
-                </div>
-              ) : null}
-            </div>
+          <Section
+            step={4}
+            icon={<Route className="h-5 w-5 text-brand-600" aria-hidden="true" />}
+            title="Your study pathway"
+            subtitle="Recommended courses in order — what to take first, and when."
+          >
             {pathway.isLoading ? <Spinner label="Building pathway" /> : null}
             {pathway.data ? <StudyPathway result={pathway.data} /> : null}
-          </section>
+
+            {pathway.data && pathway.data.steps.length > 0 ? (
+              <div className="mt-5 flex items-center gap-3 border-t border-slate-100 pt-4">
+                <Button
+                  data-testid="save-plan-button"
+                  loading={savePlan.isPending}
+                  onClick={() => {
+                    if (!activeCareerObj || !pathway.data) return;
+                    savePlan.mutate(
+                      {
+                        name: `${activeCareerObj.title} plan`,
+                        careerId: activeCareerObj.id,
+                        pathway: pathway.data,
+                      },
+                      { onSuccess: () => setSavedMsg("Plan saved to your profile") },
+                    );
+                  }}
+                >
+                  <Bookmark className="h-4 w-4" aria-hidden="true" />
+                  Save this plan
+                </Button>
+                {savedMsg ? (
+                  <span role="status" className="text-sm font-medium text-accent-600">
+                    {savedMsg}
+                  </span>
+                ) : null}
+              </div>
+            ) : null}
+          </Section>
         </>
       )}
-    </main>
+    </div>
   );
 }
