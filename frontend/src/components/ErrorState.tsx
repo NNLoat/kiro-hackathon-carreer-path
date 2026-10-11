@@ -1,3 +1,4 @@
+import { AlertCircle } from "lucide-react";
 import { Button } from "./Button";
 
 interface ErrorStateProps {
@@ -5,21 +6,29 @@ interface ErrorStateProps {
   onRetry?: () => void;
 }
 
-// Inline error with optional retry. Conveys error via text (not color alone).
+// Inline error with optional retry. Conveys error via text + icon (not color alone).
 export function ErrorState({ message, onRetry }: ErrorStateProps) {
   return (
-    <div role="alert" className="flex flex-col gap-2 rounded-md bg-red-50 p-3 text-red-700">
-      <p className="text-sm font-medium">Error: {message}</p>
-      {onRetry ? (
-        <Button
-          type="button"
-          onClick={onRetry}
-          data-testid="error-retry-button"
-          className="self-start bg-red-600 hover:bg-red-500"
-        >
-          Retry
-        </Button>
-      ) : null}
+    <div
+      role="alert"
+      className="flex items-start gap-3 rounded-lg border border-red-200 bg-red-50 p-4 text-red-700"
+    >
+      <AlertCircle className="h-5 w-5 flex-none" aria-hidden="true" />
+      <div className="flex flex-col gap-2">
+        <p className="text-sm font-medium">{message}</p>
+        {onRetry ? (
+          <Button
+            type="button"
+            variant="secondary"
+            size="sm"
+            onClick={onRetry}
+            data-testid="error-retry-button"
+            className="self-start border-red-200 text-red-700 hover:bg-red-100"
+          >
+            Try again
+          </Button>
+        ) : null}
+      </div>
     </div>
   );
 }
