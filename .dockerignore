@@ -1,0 +1,21 @@
+# Build context hygiene for Dockerfile.prod (repo-root context)
+**/node_modules
+**/dist
+**/.venv
+**/__pycache__
+**/*.py[cod]
+**/.pytest_cache
+**/.ruff_cache
+**/.mypy_cache
+**/.vite
+**/*.tsbuildinfo
+
+.git
+.github
+tmp/
+aidlc-docs/
+presentation/
+data/
+**/*.log
+.DS_Store
+.env

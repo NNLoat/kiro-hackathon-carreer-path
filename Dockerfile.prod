@@ -1,0 +1,59 @@
+# syntax=docker/dockerfile:1
+# Production image: single same-origin container.
+# Stage 1 builds the React/Vite SPA; stage 2 is the FastAPI runtime which also serves the
+# built SPA from /app/static (settings.serve_static=true). One container exposes :8000 and
+# serves both the UI and /api — ideal for a single ECS Fargate service.
+#
+# Build from the REPO ROOT so both frontend/ and backend/ are in context:
+#   docker build -f Dockerfile.prod -t career-navigator:latest .
+
+# ---------- Stage 1: build the frontend ----------
+FROM node:22-slim AS frontend-build
+
+RUN corepack enable
+WORKDIR /build
+
+# Install deps first (cached unless the lockfile changes)
+COPY frontend/package.json frontend/pnpm-lock.yaml ./
+RUN pnpm install --frozen-lockfile
+
+# Build the SPA. The app calls same-origin /api, so no build-time API URL is needed.
+# VITE_USE_STUB is unset -> defaults to the real backend (HttpApiClient).
+COPY frontend/ ./
+RUN pnpm build   # outputs to /build/dist
+
+# ---------- Stage 2: backend runtime (serves API + built SPA) ----------
+FROM python:3.13-slim AS runtime
+
+# uv for fast, reproducible installs
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
+
+ENV UV_COMPILE_BYTECODE=1 \
+    UV_LINK_MODE=copy \
+    UV_PROJECT_ENVIRONMENT=/app/.venv \
+    PATH="/app/.venv/bin:$PATH" \
+    # Production app settings (DATABASE_URL is injected by ECS from Secrets Manager)
+    SERVE_STATIC=true \
+    STATIC_DIR=/app/static \
+    SEED_ON_STARTUP=true
+
+WORKDIR /app
+
+# Install Python deps (no dev group in production)
+COPY backend/pyproject.toml backend/uv.lock ./
+RUN --mount=type=cache,target=/root/.cache/uv \
+    uv sync --locked --no-install-project --no-dev
+
+# App source + seed snapshot
+COPY backend/app ./app
+COPY backend/seed_data ./seed_data
+RUN --mount=type=cache,target=/root/.cache/uv \
+    uv sync --locked --no-dev
+
+# Built SPA from stage 1 -> served by FastAPI at / (and client-side route fallback)
+COPY --from=frontend-build /build/dist ./static
+
+EXPOSE 8000
+
+# No --reload in production. Single uvicorn process; scale horizontally via ECS desired count.
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
