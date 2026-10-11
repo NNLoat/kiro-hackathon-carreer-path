@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Career-Path Planner — Pitch</title>
+
+  <!-- reveal.js via CDN (no install needed) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css" id="theme" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/github.css" />
+
+  <style>
+    :root {
+      --accent: #0d9488;   /* teal, darker for light bg */
+      --accent2: #c2410c;  /* burnt orange, darker for light bg */
+      --ink: #1a202c;
+    }
+    .reveal { font-size: 30px; color: var(--ink); }
+    .reveal h1 { font-size: 1.9em; color: var(--accent); text-transform: none; }
+    .reveal h2 { color: var(--accent); text-transform: none; font-size: 1.5em; }
+    .reveal h3 { color: var(--accent2); text-transform: none; }
+    .reveal section p, .reveal section li { line-height: 1.35; }
+    .reveal .subtitle { color: #4a5568; font-size: 0.8em; }
+    .reveal .muted { color: #718096; }
+    .reveal .pill {
+      display: inline-block; background: rgba(13,148,136,0.12);
+      border: 1px solid var(--accent); color: var(--accent);
+      border-radius: 999px; padding: 4px 16px; font-size: 0.55em; margin: 6px;
+    }
+    .reveal .two-col { display: flex; gap: 48px; align-items: flex-start; }
+    .reveal .two-col > div { flex: 1; }
+    .reveal .card {
+      background: #f7fafc; border: 1px solid #e2e8f0;
+      border-radius: 12px; padding: 18px 22px; text-align: left;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    }
+    .reveal .card h3 { margin-top: 0; }
+    .reveal .big-num { color: var(--accent2); font-weight: 700; }
+    .reveal table { font-size: 0.72em; }
+    .reveal .flow {
+      display: flex; justify-content: center; align-items: center;
+      gap: 10px; flex-wrap: wrap; margin-top: 20px;
+    }
+    .reveal .flow .step {
+      background: rgba(13,148,136,0.10); border: 1px solid var(--accent);
+      border-radius: 10px; padding: 10px 18px; font-size: 0.7em;
+    }
+    .reveal .flow .arrow { color: var(--accent2); font-size: 1.2em; }
+    .reveal .demo-step {
+      text-align: left; background: rgba(194,65,12,0.07);
+      border-left: 4px solid var(--accent2); padding: 10px 18px;
+      border-radius: 6px; margin: 10px 0; font-size: 0.82em;
+    }
+    .reveal .footnote { position: absolute; bottom: 8px; right: 16px; font-size: 0.4em; color: #a0aec0; }
+    .reveal .quote { font-style: italic; color: #2d3748; }
+    .reveal .center { text-align: center; }
+    .reveal small.tag { color: var(--accent2); font-size: 0.5em; }
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- 1. Title -->
+      <section data-background-gradient="linear-gradient(135deg, #e6fffa, #ebf4ff)">
+        <h1>Career-Path Planner</h1>
+        <p class="subtitle">Turn "my interests + what I've done" into "what to do next."</p>
+        <p>
+          <span class="pill">Problem → Solution</span>
+          <span class="pill">Persona &amp; Stories</span>
+          <span class="pill">Live Demo</span>
+        </p>
+        <p class="muted" style="margin-top:40px; font-size:0.6em;">Hackathon pitch · 7 minutes</p>
+      </section>
+
+      <!-- 2. Problem -->
+      <section>
+        <h2>The Problem</h2>
+        <div class="two-col">
+          <div class="card">
+            <h3>What students face</h3>
+            <ul>
+              <li>Course &amp; career info is <strong>scattered</strong> across catalogs, advisors, websites.</li>
+              <li>Hard to know which courses actually <strong>build the skills</strong> a career needs.</li>
+              <li>Prerequisite chains &amp; term scheduling are confusing to untangle by hand.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>The gap</h3>
+            <p>No single place that turns <em>interests + completed courses</em> into a concrete, ordered <strong>study plan</strong> and <strong>career roadmap</strong>.</p>
+          </div>
+        </div>
+        <p class="footnote">Source: requirements.md · personas.md</p>
+      </section>
+
+      <!-- 3. Persona -->
+      <section>
+        <h2>Meet "Nam"</h2>
+        <div class="two-col">
+          <div class="card">
+            <h3>Who</h3>
+            <ul>
+              <li>University student (also takes online courses)</li>
+              <li>Early 20s, mid-degree, picking next term's courses</li>
+              <li>Comfortable with web apps — laptop &amp; phone interchangeably</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Goals</h3>
+            <ul>
+              <li>Choose a career to aim for</li>
+              <li>See current skills vs. what the career requires</li>
+              <li>Get an ordered plan — <em>no timetable clashes</em></li>
+              <li>Save &amp; revisit plans over time</li>
+            </ul>
+          </div>
+        </div>
+        <p class="quote" style="margin-top:24px;">"Give me a clear visual and a step-by-step roadmap — not dense text."</p>
+      </section>
+
+      <!-- 4. User Stories -->
+      <section>
+        <h2>User Stories — Nam's Journey</h2>
+        <div class="flow">
+          <div class="step">1 · Sign in<br/><small class="tag">username only</small></div>
+          <span class="arrow">→</span>
+          <div class="step">2 · Pick courses &amp; interests<br/><small class="tag">typeahead</small></div>
+          <span class="arrow">→</span>
+          <div class="step">3 · Select careers<br/><small class="tag">one or more</small></div>
+          <span class="arrow">→</span>
+          <div class="step">4 · See the gap<br/><small class="tag">radar chart</small></div>
+          <span class="arrow">→</span>
+          <div class="step">5 · Follow the pathway<br/><small class="tag">what &amp; when</small></div>
+          <span class="arrow">→</span>
+          <div class="step">6 · Save the plan<br/><small class="tag">profile</small></div>
+        </div>
+        <p class="muted" style="margin-top:28px; font-size:0.7em;">Delivered in 3 phases: <strong>Login</strong> · <strong>Profile</strong> · <strong>Landing / Results</strong></p>
+      </section>
+
+      <!-- 5. Solution overview -->
+      <section>
+        <h2>The Solution</h2>
+        <p class="subtitle">A responsive, accessible (WCAG 2.1 AA) React app — three pages.</p>
+        <div class="two-col" style="margin-top:10px;">
+          <div class="card"><h3>Login</h3><p>Enter a username to create or load a profile. No password — prototype-grade session.</p></div>
+          <div class="card"><h3>Landing (Results)</h3><p>The core experience: select courses &amp; interests, pick careers, view radar + study pathway.</p></div>
+          <div class="card"><h3>Profile</h3><p>View/edit saved courses, interests, careers, and named study plans.</p></div>
+        </div>
+      </section>
+
+      <!-- 6. Core features -->
+      <section>
+        <h2>Core Features</h2>
+        <div class="two-col">
+          <div class="card">
+            <h3>🔎 Catalog selection</h3>
+            <p>Typeahead multi-select for completed courses, skills/interests, and careers.</p>
+            <h3>📊 Required vs. Current radar</h3>
+            <p>Overlays a career's required skills on Nam's current competency — <em>auto-derived from completed courses</em>. Toggle between careers.</p>
+          </div>
+          <div class="card">
+            <h3>🪜 Step-by-step pathway</h3>
+            <p>Ordered recommendations that respect:</p>
+            <ul>
+              <li>course <strong>prerequisites</strong></li>
+              <li><strong>skill-gap priority</strong> (close biggest gaps first)</li>
+              <li><strong>conflict-free</strong> term scheduling</li>
+            </ul>
+          </div>
+        </div>
+        <p class="footnote">FR-3 … FR-7</p>
+      </section>
+
+      <!-- 7. How it works / architecture -->
+      <section>
+        <h2>How It Hangs Together</h2>
+        <div class="flow">
+          <div class="step">Completed courses</div>
+          <span class="arrow">→</span>
+          <div class="step">Weighted course → skill map</div>
+          <span class="arrow">→</span>
+          <div class="step">Current competency</div>
+          <span class="arrow">→</span>
+          <div class="step">Gap vs. career</div>
+          <span class="arrow">→</span>
+          <div class="step">Ordered pathway</div>
+        </div>
+        <p class="muted" style="margin-top:28px; font-size:0.72em;">
+          UI is decoupled from data via a <strong>typed API client</strong> + a <strong>swappable stub layer</strong>,
+          so the frontend runs end-to-end before the real backend exists.
+        </p>
+      </section>
+
+      <!-- 8. Tech stack -->
+      <section>
+        <h2>Tech Stack</h2>
+        <table>
+          <thead><tr><th>Layer</th><th>Tech</th></tr></thead>
+          <tbody>
+            <tr><td>Frontend</td><td>Vite · React · TypeScript · Tailwind v4 · headless UI (Radix/shadcn-style)</td></tr>
+            <tr><td>Backend</td><td>FastAPI · SQLModel (<code>psycopg</code>) · <code>uv</code> · Python 3.13</td></tr>
+            <tr><td>Database</td><td><code>postgres:17</code></td></tr>
+            <tr><td>Dev infra</td><td>Docker Compose (<code>compose watch</code>)</td></tr>
+            <tr><td>Testing</td><td>Vitest · Testing Library · fast-check (property-based)</td></tr>
+          </tbody>
+        </table>
+        <p class="muted" style="font-size:0.65em; margin-top:16px;">Scope: frontend + a documented API contract. Backend logic, real auth, persistence come later.</p>
+      </section>
+
+      <!-- 9. Demo -->
+      <section data-background-gradient="linear-gradient(135deg, #fffaf0, #fff5f5)">
+        <h2>Live Demo</h2>
+        <p class="subtitle">~2 minutes — the happy path</p>
+        <div class="demo-step"><span class="big-num">1.</span> Sign in as <code>nam</code> → land on Results</div>
+        <div class="demo-step"><span class="big-num">2.</span> Add a few completed courses + interests via typeahead</div>
+        <div class="demo-step"><span class="big-num">3.</span> Select a target career → radar shows the gap</div>
+        <div class="demo-step"><span class="big-num">4.</span> Scroll the step-by-step pathway (what to take first &amp; when)</div>
+        <div class="demo-step"><span class="big-num">5.</span> Save the plan → open it again from Profile</div>
+      </section>
+
+      <!-- 10. Wrap up -->
+      <section>
+        <h2>Wrap-up</h2>
+        <div class="two-col">
+          <div class="card">
+            <h3>What we built</h3>
+            <ul>
+              <li>Scattered info → one guided flow</li>
+              <li>Visual gap analysis (radar)</li>
+              <li>Prerequisite- &amp; schedule-aware pathway</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Next steps</h3>
+            <ul>
+              <li>Wire the real backend behind the contract</li>
+              <li>Real auth &amp; persistence</li>
+              <li>Richer catalog + more careers</li>
+            </ul>
+          </div>
+        </div>
+        <p class="center" style="margin-top:30px;"><span class="pill">Thank you — questions?</span></p>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
+  <script>
+    Reveal.initialize({
+      hash: true,
+      slideNumber: 'c/t',
+      transition: 'slide',
+      plugins: [ RevealHighlight, RevealNotes ]
+    });
+  </script>
+</body>
+</html>
