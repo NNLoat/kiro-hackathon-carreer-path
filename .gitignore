@@ -17,3 +17,7 @@ dist/
 # OS / editor
 .DS_Store
 *.log
+
+# AI-DLC per-run tracking files (machine-specific; avoid cross-run path collisions)
+aidlc-docs/aidlc-state.md
+aidlc-docs/audit.md
