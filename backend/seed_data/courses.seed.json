@@ -1,0 +1,711 @@
+[
+  {
+    "id": "6-0001",
+    "code": "6.0001",
+    "title": "Introduction to Computer Science and Programming in Python",
+    "source": "university",
+    "provider": "MIT OpenCourseWare",
+    "credits": 3,
+    "terms_offered": [
+      "fall"
+    ],
+    "skill_contributions": [
+      {
+        "skill_id": "SK-001",
+        "weight": 0.8
+      },
+      {
+        "skill_id": "SK-002",
+        "weight": 0.72
+      },
+      {
+        "skill_id": "SK-008",
+        "weight": 0.64
+      },
+      {
+        "skill_id": "SK-009",
+        "weight": 0.56
+      },
+      {
+        "skill_id": "SK-010",
+        "weight": 0.48
+      },
+      {
+        "skill_id": "SK-028",
+        "weight": 0.4
+      }
+    ],
+    "prerequisites": []
+  },
+  {
+    "id": "6-006",
+    "code": "6.006",
+    "title": "Introduction to Algorithms",
+    "source": "university",
+    "provider": "MIT OpenCourseWare",
+    "credits": 3,
+    "terms_offered": [
+      "fall",
+      "spring"
+    ],
+    "skill_contributions": [
+      {
+        "skill_id": "SK-006",
+        "weight": 0.8
+      },
+      {
+        "skill_id": "SK-007",
+        "weight": 0.72
+      },
+      {
+        "skill_id": "SK-002",
+        "weight": 0.64
+      },
+      {
+        "skill_id": "SK-026",
+        "weight": 0.56
+      }
+    ],
+    "prerequisites": []
+  },
+  {
+    "id": "6-004",
+    "code": "6.004",
+    "title": "Computation Structures",
+    "source": "university",
+    "provider": "MIT OpenCourseWare",
+    "credits": 3,
+    "terms_offered": [
+      "fall"
+    ],
+    "skill_contributions": [
+      {
+        "skill_id": "SK-011",
+        "weight": 0.8
+      },
+      {
+        "skill_id": "SK-029",
+        "weight": 0.72
+      },
+      {
+        "skill_id": "SK-003",
+        "weight": 0.64
+      }
+    ],
+    "prerequisites": [
+      "cs50x"
+    ]
+  },
+  {
+    "id": "6-034",
+    "code": "6.034",
+    "title": "Artificial Intelligence",
+    "source": "university",
+    "provider": "MIT OpenCourseWare",
+    "credits": 3,
+    "terms_offered": [
+      "fall"
+    ],
+    "skill_contributions": [
+      {
+        "skill_id": "SK-018",
+        "weight": 0.8
+      },
+      {
+        "skill_id": "SK-017",
+        "weight": 0.72
+      },
+      {
+        "skill_id": "SK-019",
+        "weight": 0.64
+      },
+      {
+        "skill_id": "SK-007",
+        "weight": 0.56
+      },
+      {
+        "skill_id": "SK-002",
+        "weight": 0.48
+      }
+    ],
+    "prerequisites": []
+  },
+  {
+    "id": "6-046j",
+    "code": "6.046J",
+    "title": "Design and Analysis of Algorithms",
+    "source": "university",
+    "provider": "MIT OpenCourseWare",
+    "credits": 3,
+    "terms_offered": [
+      "spring"
+    ],
+    "skill_contributions": [
+      {
+        "skill_id": "SK-007",
+        "weight": 0.8
+      },
+      {
+        "skill_id": "SK-006",
+        "weight": 0.72
+      },
+      {
+        "skill_id": "SK-026",
+        "weight": 0.64
+      }
+    ],
+    "prerequisites": []
+  },
+  {
+    "id": "6-033",
+    "code": "6.033",
+    "title": "Computer System Engineering",
+    "source": "university",
+    "provider": "MIT OpenCourseWare",
+    "credits": 3,
+    "terms_offered": [
+      "fall",
+      "spring"
+    ],
+    "skill_contributions": [
+      {
+        "skill_id": "SK-012",
+        "weight": 0.8
+      },
+      {
+        "skill_id": "SK-013",
+        "weight": 0.72
+      },
+      {
+        "skill_id": "SK-014",
+        "weight": 0.64
+      },
+      {
+        "skill_id": "SK-015",
+        "weight": 0.56
+      }
+    ],
+    "prerequisites": [
+      "cs101"
+    ]
+  },
+  {
+    "id": "6-431",
+    "code": "6.431",
+    "title": "Probabilistic Systems Analysis and Applied Probability",
+    "source": "university",
+    "provider": "MIT OpenCourseWare",
+    "credits": 3,
+    "terms_offered": [
+      "spring"
+    ],
+    "skill_contributions": [
+      {
+        "skill_id": "SK-022",
+        "weight": 0.8
+      },
+      {
+        "skill_id": "SK-021",
+        "weight": 0.72
+      },
+      {
+        "skill_id": "SK-026",
+        "weight": 0.64
+      }
+    ],
+    "prerequisites": []
+  },
+  {
+    "id": "cs50x",
+    "code": "CS50x",
+    "title": "CS50: Introduction to Computer Science",
+    "source": "university",
+    "provider": "Harvard University (OpenCourseWare)",
+    "credits": 3,
+    "terms_offered": [
+      "fall",
+      "spring"
+    ],
+    "skill_contributions": [
+      {
+        "skill_id": "SK-001",
+        "weight": 0.8
+      },
+      {
+        "skill_id": "SK-003",
+        "weight": 0.72
+      },
+      {
+        "skill_id": "SK-002",
+        "weight": 0.64
+      },
+      {
+        "skill_id": "SK-005",
+        "weight": 0.56
+      },
+      {
+        "skill_id": "SK-004",
+        "weight": 0.48
+      },
+      {
+        "skill_id": "SK-006",
+        "weight": 0.4
+      },
+      {
+        "skill_id": "SK-007",
+        "weight": 0.32
+      },
+      {
+        "skill_id": "SK-008",
+        "weight": 0.3
+      },
+      {
+        "skill_id": "SK-016",
+        "weight": 0.3
+      }
+    ],
+    "prerequisites": []
+  },
+  {
+    "id": "cs50p",
+    "code": "CS50P",
+    "title": "CS50's Introduction to Programming with Python",
+    "source": "university",
+    "provider": "Harvard University (OpenCourseWare)",
+    "credits": 3,
+    "terms_offered": [
+      "fall"
+    ],
+    "skill_contributions": [
+      {
+        "skill_id": "SK-002",
+        "weight": 0.8
+      },
+      {
+        "skill_id": "SK-001",
+        "weight": 0.72
+      },
+      {
+        "skill_id": "SK-009",
+        "weight": 0.64
+      },
+      {
+        "skill_id": "SK-010",
+        "weight": 0.56
+      }
+    ],
+    "prerequisites": []
+  },
+  {
+    "id": "cs50w",
+    "code": "CS50W",
+    "title": "CS50's Web Programming with Python and JavaScript",
+    "source": "university",
+    "provider": "Harvard University (OpenCourseWare)",
+    "credits": 3,
+    "terms_offered": [
+      "spring"
+    ],
+    "skill_contributions": [
+      {
+        "skill_id": "SK-016",
+        "weight": 0.8
+      },
+      {
+        "skill_id": "SK-004",
+        "weight": 0.72
+      },
+      {
+        "skill_id": "SK-002",
+        "weight": 0.64
+      },
+      {
+        "skill_id": "SK-005",
+        "weight": 0.56
+      },
+      {
+        "skill_id": "SK-025",
+        "weight": 0.48
+      },
+      {
+        "skill_id": "SK-015",
+        "weight": 0.4
+      }
+    ],
+    "prerequisites": [
+      "cs50x"
+    ]
+  },
+  {
+    "id": "cs50ai",
+    "code": "CS50AI",
+    "title": "CS50's Introduction to Artificial Intelligence with Python",
+    "source": "university",
+    "provider": "Harvard University (OpenCourseWare)",
+    "credits": 3,
+    "terms_offered": [
+      "fall"
+    ],
+    "skill_contributions": [
+      {
+        "skill_id": "SK-018",
+        "weight": 0.8
+      },
+      {
+        "skill_id": "SK-017",
+        "weight": 0.72
+      },
+      {
+        "skill_id": "SK-019",
+        "weight": 0.64
+      },
+      {
+        "skill_id": "SK-020",
+        "weight": 0.56
+      },
+      {
+        "skill_id": "SK-002",
+        "weight": 0.48
+      }
+    ],
+    "prerequisites": [
+      "6-034"
+    ]
+  },
+  {
+    "id": "cs50r",
+    "code": "CS50R",
+    "title": "CS50's Introduction to Programming with R",
+    "source": "university",
+    "provider": "Harvard University (OpenCourseWare)",
+    "credits": 3,
+    "terms_offered": [
+      "fall",
+      "spring"
+    ],
+    "skill_contributions": [
+      {
+        "skill_id": "SK-027",
+        "weight": 0.8
+      },
+      {
+        "skill_id": "SK-021",
+        "weight": 0.72
+      },
+      {
+        "skill_id": "SK-023",
+        "weight": 0.64
+      },
+      {
+        "skill_id": "SK-001",
+        "weight": 0.56
+      }
+    ],
+    "prerequisites": []
+  },
+  {
+    "id": "cs101",
+    "code": "CS101",
+    "title": "Computer Science 101",
+    "source": "university",
+    "provider": "Stanford Online",
+    "credits": 3,
+    "terms_offered": [
+      "fall",
+      "spring"
+    ],
+    "skill_contributions": [
+      {
+        "skill_id": "SK-001",
+        "weight": 0.8
+      },
+      {
+        "skill_id": "SK-008",
+        "weight": 0.72
+      },
+      {
+        "skill_id": "SK-004",
+        "weight": 0.64
+      },
+      {
+        "skill_id": "SK-015",
+        "weight": 0.56
+      }
+    ],
+    "prerequisites": []
+  },
+  {
+    "id": "cs106a",
+    "code": "CS106A",
+    "title": "Programming Methodology (Code in Place)",
+    "source": "university",
+    "provider": "Stanford University",
+    "credits": 3,
+    "terms_offered": [
+      "fall",
+      "spring"
+    ],
+    "skill_contributions": [
+      {
+        "skill_id": "SK-001",
+        "weight": 0.8
+      },
+      {
+        "skill_id": "SK-002",
+        "weight": 0.72
+      },
+      {
+        "skill_id": "SK-009",
+        "weight": 0.64
+      },
+      {
+        "skill_id": "SK-006",
+        "weight": 0.56
+      }
+    ],
+    "prerequisites": []
+  },
+  {
+    "id": "cs107",
+    "code": "CS107",
+    "title": "Computer Organization and Systems",
+    "source": "university",
+    "provider": "Stanford Engineering Everywhere",
+    "credits": 3,
+    "terms_offered": [
+      "fall",
+      "spring"
+    ],
+    "skill_contributions": [
+      {
+        "skill_id": "SK-003",
+        "weight": 0.8
+      },
+      {
+        "skill_id": "SK-011",
+        "weight": 0.72
+      },
+      {
+        "skill_id": "SK-012",
+        "weight": 0.64
+      }
+    ],
+    "prerequisites": [
+      "cs50x"
+    ]
+  },
+  {
+    "id": "onl-ml-andrewng",
+    "code": "ONL-ML-ANDREWNG",
+    "title": "Machine Learning Specialization",
+    "source": "online",
+    "provider": "Coursera (DeepLearning.AI / Stanford)",
+    "credits": null,
+    "terms_offered": [
+      "spring"
+    ],
+    "skill_contributions": [
+      {
+        "skill_id": "SK-017",
+        "weight": 0.8
+      },
+      {
+        "skill_id": "SK-018",
+        "weight": 0.72
+      },
+      {
+        "skill_id": "SK-019",
+        "weight": 0.64
+      },
+      {
+        "skill_id": "SK-002",
+        "weight": 0.56
+      },
+      {
+        "skill_id": "SK-022",
+        "weight": 0.48
+      }
+    ],
+    "prerequisites": [
+      "6-034"
+    ]
+  },
+  {
+    "id": "onl-dl-spec",
+    "code": "ONL-DL-SPEC",
+    "title": "Deep Learning Specialization",
+    "source": "online",
+    "provider": "Coursera (DeepLearning.AI)",
+    "credits": null,
+    "terms_offered": [
+      "fall"
+    ],
+    "skill_contributions": [
+      {
+        "skill_id": "SK-019",
+        "weight": 0.8
+      },
+      {
+        "skill_id": "SK-017",
+        "weight": 0.72
+      },
+      {
+        "skill_id": "SK-020",
+        "weight": 0.64
+      },
+      {
+        "skill_id": "SK-002",
+        "weight": 0.56
+      }
+    ],
+    "prerequisites": [
+      "6-034"
+    ]
+  },
+  {
+    "id": "onl-google-da",
+    "code": "ONL-GOOGLE-DA",
+    "title": "Google Data Analytics Professional Certificate",
+    "source": "online",
+    "provider": "Coursera (Google)",
+    "credits": null,
+    "terms_offered": [
+      "spring"
+    ],
+    "skill_contributions": [
+      {
+        "skill_id": "SK-021",
+        "weight": 0.8
+      },
+      {
+        "skill_id": "SK-005",
+        "weight": 0.72
+      },
+      {
+        "skill_id": "SK-023",
+        "weight": 0.64
+      },
+      {
+        "skill_id": "SK-027",
+        "weight": 0.56
+      }
+    ],
+    "prerequisites": [
+      "cs50r"
+    ]
+  },
+  {
+    "id": "onl-ibm-cyber",
+    "code": "ONL-IBM-CYBER",
+    "title": "IBM Cybersecurity Analyst Professional Certificate",
+    "source": "online",
+    "provider": "Coursera (IBM)",
+    "credits": null,
+    "terms_offered": [
+      "fall"
+    ],
+    "skill_contributions": [
+      {
+        "skill_id": "SK-015",
+        "weight": 0.8
+      },
+      {
+        "skill_id": "SK-013",
+        "weight": 0.72
+      },
+      {
+        "skill_id": "SK-012",
+        "weight": 0.64
+      }
+    ],
+    "prerequisites": [
+      "cs101"
+    ]
+  },
+  {
+    "id": "onl-edx-6-00-1x",
+    "code": "ONL-EDX-6.00.1x",
+    "title": "Introduction to Computer Science and Programming Using Python (MITx)",
+    "source": "online",
+    "provider": "edX (MITx)",
+    "credits": null,
+    "terms_offered": [
+      "fall",
+      "spring"
+    ],
+    "skill_contributions": [
+      {
+        "skill_id": "SK-001",
+        "weight": 0.8
+      },
+      {
+        "skill_id": "SK-002",
+        "weight": 0.72
+      },
+      {
+        "skill_id": "SK-008",
+        "weight": 0.64
+      },
+      {
+        "skill_id": "SK-010",
+        "weight": 0.56
+      }
+    ],
+    "prerequisites": []
+  },
+  {
+    "id": "onl-edx-6-004x",
+    "code": "ONL-EDX-6.004x",
+    "title": "Computation Structures (MITx)",
+    "source": "online",
+    "provider": "edX (MITx)",
+    "credits": null,
+    "terms_offered": [
+      "fall",
+      "spring"
+    ],
+    "skill_contributions": [
+      {
+        "skill_id": "SK-011",
+        "weight": 0.8
+      },
+      {
+        "skill_id": "SK-029",
+        "weight": 0.72
+      },
+      {
+        "skill_id": "SK-003",
+        "weight": 0.64
+      }
+    ],
+    "prerequisites": [
+      "cs50x"
+    ]
+  },
+  {
+    "id": "onl-udacity-dsa",
+    "code": "ONL-UDACITY-DSA",
+    "title": "Data Structures and Algorithms Nanodegree",
+    "source": "online",
+    "provider": "Udacity",
+    "credits": null,
+    "terms_offered": [
+      "fall"
+    ],
+    "skill_contributions": [
+      {
+        "skill_id": "SK-006",
+        "weight": 0.8
+      },
+      {
+        "skill_id": "SK-007",
+        "weight": 0.72
+      },
+      {
+        "skill_id": "SK-002",
+        "weight": 0.64
+      }
+    ],
+    "prerequisites": []
+  }
+]

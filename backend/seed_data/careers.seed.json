@@ -1,0 +1,380 @@
+[
+  {
+    "id": "CR-001",
+    "title": "Software Developer / Engineer",
+    "description": "Designs, builds, and maintains software applications and systems.",
+    "required_skills": [
+      {
+        "skill_id": "SK-001",
+        "level": 0.9
+      },
+      {
+        "skill_id": "SK-006",
+        "level": 0.9
+      },
+      {
+        "skill_id": "SK-007",
+        "level": 0.9
+      },
+      {
+        "skill_id": "SK-009",
+        "level": 0.9
+      },
+      {
+        "skill_id": "SK-010",
+        "level": 0.9
+      },
+      {
+        "skill_id": "SK-024",
+        "level": 0.9
+      },
+      {
+        "skill_id": "SK-002",
+        "level": 0.5
+      },
+      {
+        "skill_id": "SK-004",
+        "level": 0.5
+      },
+      {
+        "skill_id": "SK-005",
+        "level": 0.5
+      },
+      {
+        "skill_id": "SK-016",
+        "level": 0.5
+      },
+      {
+        "skill_id": "SK-025",
+        "level": 0.5
+      }
+    ]
+  },
+  {
+    "id": "CR-002",
+    "title": "Web Developer",
+    "description": "Builds and maintains websites and web applications, front-end and back-end.",
+    "required_skills": [
+      {
+        "skill_id": "SK-004",
+        "level": 0.9
+      },
+      {
+        "skill_id": "SK-005",
+        "level": 0.9
+      },
+      {
+        "skill_id": "SK-010",
+        "level": 0.9
+      },
+      {
+        "skill_id": "SK-016",
+        "level": 0.9
+      },
+      {
+        "skill_id": "SK-002",
+        "level": 0.5
+      },
+      {
+        "skill_id": "SK-015",
+        "level": 0.5
+      },
+      {
+        "skill_id": "SK-024",
+        "level": 0.5
+      },
+      {
+        "skill_id": "SK-025",
+        "level": 0.5
+      }
+    ]
+  },
+  {
+    "id": "CR-003",
+    "title": "Data Scientist",
+    "description": "Extracts insight from data using statistics, programming, and machine learning.",
+    "required_skills": [
+      {
+        "skill_id": "SK-002",
+        "level": 0.9
+      },
+      {
+        "skill_id": "SK-017",
+        "level": 0.9
+      },
+      {
+        "skill_id": "SK-021",
+        "level": 0.9
+      },
+      {
+        "skill_id": "SK-022",
+        "level": 0.9
+      },
+      {
+        "skill_id": "SK-023",
+        "level": 0.9
+      },
+      {
+        "skill_id": "SK-005",
+        "level": 0.5
+      },
+      {
+        "skill_id": "SK-019",
+        "level": 0.5
+      },
+      {
+        "skill_id": "SK-020",
+        "level": 0.5
+      },
+      {
+        "skill_id": "SK-027",
+        "level": 0.5
+      }
+    ]
+  },
+  {
+    "id": "CR-004",
+    "title": "Machine Learning Engineer",
+    "description": "Designs, trains, and deploys machine learning models in production systems.",
+    "required_skills": [
+      {
+        "skill_id": "SK-002",
+        "level": 0.9
+      },
+      {
+        "skill_id": "SK-007",
+        "level": 0.9
+      },
+      {
+        "skill_id": "SK-017",
+        "level": 0.9
+      },
+      {
+        "skill_id": "SK-018",
+        "level": 0.9
+      },
+      {
+        "skill_id": "SK-019",
+        "level": 0.9
+      },
+      {
+        "skill_id": "SK-020",
+        "level": 0.5
+      },
+      {
+        "skill_id": "SK-021",
+        "level": 0.5
+      },
+      {
+        "skill_id": "SK-022",
+        "level": 0.5
+      },
+      {
+        "skill_id": "SK-025",
+        "level": 0.5
+      }
+    ]
+  },
+  {
+    "id": "CR-005",
+    "title": "AI Research Engineer",
+    "description": "Advances AI methods through research, experimentation, and prototyping.",
+    "required_skills": [
+      {
+        "skill_id": "SK-007",
+        "level": 0.9
+      },
+      {
+        "skill_id": "SK-017",
+        "level": 0.9
+      },
+      {
+        "skill_id": "SK-018",
+        "level": 0.9
+      },
+      {
+        "skill_id": "SK-019",
+        "level": 0.9
+      },
+      {
+        "skill_id": "SK-022",
+        "level": 0.9
+      },
+      {
+        "skill_id": "SK-002",
+        "level": 0.5
+      },
+      {
+        "skill_id": "SK-020",
+        "level": 0.5
+      },
+      {
+        "skill_id": "SK-026",
+        "level": 0.5
+      }
+    ]
+  },
+  {
+    "id": "CR-006",
+    "title": "Cybersecurity Analyst",
+    "description": "Protects systems and networks by detecting, preventing, and responding to threats.",
+    "required_skills": [
+      {
+        "skill_id": "SK-003",
+        "level": 0.9
+      },
+      {
+        "skill_id": "SK-012",
+        "level": 0.9
+      },
+      {
+        "skill_id": "SK-013",
+        "level": 0.9
+      },
+      {
+        "skill_id": "SK-015",
+        "level": 0.9
+      },
+      {
+        "skill_id": "SK-014",
+        "level": 0.5
+      },
+      {
+        "skill_id": "SK-024",
+        "level": 0.5
+      },
+      {
+        "skill_id": "SK-025",
+        "level": 0.5
+      }
+    ]
+  },
+  {
+    "id": "CR-007",
+    "title": "Systems / Infrastructure Engineer",
+    "description": "Designs and operates computing infrastructure, servers, and networks.",
+    "required_skills": [
+      {
+        "skill_id": "SK-011",
+        "level": 0.9
+      },
+      {
+        "skill_id": "SK-012",
+        "level": 0.9
+      },
+      {
+        "skill_id": "SK-013",
+        "level": 0.9
+      },
+      {
+        "skill_id": "SK-014",
+        "level": 0.9
+      },
+      {
+        "skill_id": "SK-003",
+        "level": 0.5
+      },
+      {
+        "skill_id": "SK-015",
+        "level": 0.5
+      },
+      {
+        "skill_id": "SK-025",
+        "level": 0.5
+      }
+    ]
+  },
+  {
+    "id": "CR-008",
+    "title": "Database Administrator / Data Engineer",
+    "description": "Designs, builds, and maintains data storage, pipelines, and query systems.",
+    "required_skills": [
+      {
+        "skill_id": "SK-005",
+        "level": 0.9
+      },
+      {
+        "skill_id": "SK-006",
+        "level": 0.9
+      },
+      {
+        "skill_id": "SK-021",
+        "level": 0.9
+      },
+      {
+        "skill_id": "SK-025",
+        "level": 0.9
+      },
+      {
+        "skill_id": "SK-002",
+        "level": 0.5
+      },
+      {
+        "skill_id": "SK-014",
+        "level": 0.5
+      },
+      {
+        "skill_id": "SK-023",
+        "level": 0.5
+      }
+    ]
+  },
+  {
+    "id": "CR-009",
+    "title": "Hardware / Embedded Systems Engineer",
+    "description": "Designs digital hardware and software for embedded and computing devices.",
+    "required_skills": [
+      {
+        "skill_id": "SK-003",
+        "level": 0.9
+      },
+      {
+        "skill_id": "SK-011",
+        "level": 0.9
+      },
+      {
+        "skill_id": "SK-029",
+        "level": 0.9
+      },
+      {
+        "skill_id": "SK-012",
+        "level": 0.5
+      },
+      {
+        "skill_id": "SK-013",
+        "level": 0.5
+      }
+    ]
+  },
+  {
+    "id": "CR-010",
+    "title": "Algorithms / Research Scientist",
+    "description": "Develops and analyzes advanced algorithms for computationally hard problems.",
+    "required_skills": [
+      {
+        "skill_id": "SK-006",
+        "level": 0.9
+      },
+      {
+        "skill_id": "SK-007",
+        "level": 0.9
+      },
+      {
+        "skill_id": "SK-022",
+        "level": 0.9
+      },
+      {
+        "skill_id": "SK-026",
+        "level": 0.9
+      },
+      {
+        "skill_id": "SK-014",
+        "level": 0.5
+      },
+      {
+        "skill_id": "SK-017",
+        "level": 0.5
+      }
+    ]
+  }
+]
