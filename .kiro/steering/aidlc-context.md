@@ -50,19 +50,26 @@ contributor's local copy reflects their own machine (e.g. `Workspace Root`).
 Do not re-commit them; the shared, tracked artifacts are the inception documents
 under `aidlc-docs/inception/`.
 
+## Authoritative project definition
+
+`aidlc-docs/inception/combined-inception.md` is the **single source of truth**
+for scope, stack, pages, data model, API contract, and success criteria. It
+reconciles the frontend-derived inception with the dataset/concept inception.
+On any disagreement between inception documents, `combined-inception.md` wins.
+
 ## Current state (informational)
 
-- The repo already contains a working scaffold: **FastAPI + SQLModel** backend
-  and **Vite + React + TypeScript + Tailwind v4** frontend, orchestrated with
+- The repo contains a working scaffold: **FastAPI + SQLModel** backend and
+  **Vite + React + TypeScript + Tailwind v4** frontend, orchestrated with
   **Docker Compose** (`postgres:17`). See `README.md`.
-- The AI-DLC inception artifacts (`aidlc-docs/inception/`) describe the
-  **frontend career-path planner + API contract** work. The committed
-  requirements scope that effort to **frontend + API contract definition only**
-  (no backend logic/auth/persistence implemented in that engagement).
-- `aidlc-docs/aidlc-state.md` may lag the real tree (it was first authored when
-  the workspace was empty). Trust the repo contents and the inception documents
-  over the `Workspace State` snapshot; update `aidlc-state.md` locally as the
-  workflow progresses.
+- Scope is a **full-stack build**: the frontend as designed here, plus a FastAPI
+  backend that implements `backend/API-CONTRACT.md` and seeds the catalog from
+  the dataset. This supersedes the earlier "frontend + API contract only"
+  framing (now reflected in the combined requirements).
+- Inception is effectively complete; the next stage is **Construction**
+  (Functional Design → code generation → build & test).
+- `aidlc-docs/aidlc-state.md` is a local, gitignored runtime file; keep it
+  current on your machine as stages progress.
 
 ## Working with AI-DLC here
 

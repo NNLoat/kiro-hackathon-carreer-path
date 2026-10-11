@@ -1,0 +1,244 @@
+{
+  "metadata": {
+    "description": "Join layer linking university and online computer science courses to the skills they teach, and onward to matching CS careers. This is the core mapping the Course & Career Navigator uses to turn completed courses into a skill profile and a career roadmap.",
+    "generated": "2026-10-11",
+    "join_keys": {
+      "course_code": "References courses in computer_science_courses.json (and online courses listed here)",
+      "teaches_skills": "References skill_id in skills.json",
+      "matching_careers": "References career_id in careers.json (careers whose required/recommended skills overlap this course's skills)"
+    },
+    "safety_note": "University courses are from openly-licensed courseware (MIT OCW, Harvard CS50, Stanford - CC licensed). Online-platform entries list only reference metadata (title, provider, URL, paraphrased topics); no proprietary Coursera/edX syllabus text is reproduced. Content was rephrased for compliance with licensing restrictions.",
+    "fields": {
+      "course_code": "Course identifier",
+      "title": "Course title",
+      "provider": "Institution or platform",
+      "source_type": "university-courseware | online-platform",
+      "license": "Content license / usage note",
+      "teaches_skills": "skill_id list (skills.json)",
+      "matching_careers": "career_id list (careers.json)",
+      "url": "Public landing page"
+    }
+  },
+  "mappings": [
+    {
+      "course_code": "6.0001",
+      "title": "Introduction to Computer Science and Programming in Python",
+      "provider": "MIT OpenCourseWare",
+      "source_type": "university-courseware",
+      "license": "CC BY-NC-SA",
+      "teaches_skills": ["SK-001", "SK-002", "SK-008", "SK-009", "SK-010", "SK-028"],
+      "matching_careers": ["CR-001", "CR-003", "CR-004"],
+      "url": "https://ocw.mit.edu/courses/6-0001-introduction-to-computer-science-and-programming-in-python-fall-2016/"
+    },
+    {
+      "course_code": "6.006",
+      "title": "Introduction to Algorithms",
+      "provider": "MIT OpenCourseWare",
+      "source_type": "university-courseware",
+      "license": "CC BY-NC-SA",
+      "teaches_skills": ["SK-006", "SK-007", "SK-002", "SK-026"],
+      "matching_careers": ["CR-001", "CR-010", "CR-004"],
+      "url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/"
+    },
+    {
+      "course_code": "6.004",
+      "title": "Computation Structures",
+      "provider": "MIT OpenCourseWare",
+      "source_type": "university-courseware",
+      "license": "CC BY-NC-SA",
+      "teaches_skills": ["SK-011", "SK-029", "SK-003"],
+      "matching_careers": ["CR-009", "CR-007"],
+      "url": "https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/"
+    },
+    {
+      "course_code": "6.034",
+      "title": "Artificial Intelligence",
+      "provider": "MIT OpenCourseWare",
+      "source_type": "university-courseware",
+      "license": "CC BY-NC-SA",
+      "teaches_skills": ["SK-018", "SK-017", "SK-019", "SK-007", "SK-002"],
+      "matching_careers": ["CR-004", "CR-005", "CR-003"],
+      "url": "https://ocw.mit.edu/courses/6-034-artificial-intelligence-fall-2010/"
+    },
+    {
+      "course_code": "6.046J",
+      "title": "Design and Analysis of Algorithms",
+      "provider": "MIT OpenCourseWare",
+      "source_type": "university-courseware",
+      "license": "CC BY-NC-SA",
+      "teaches_skills": ["SK-007", "SK-006", "SK-026"],
+      "matching_careers": ["CR-010", "CR-001"],
+      "url": "https://ocw.mit.edu/courses/6-046j-design-and-analysis-of-algorithms-spring-2015/"
+    },
+    {
+      "course_code": "6.033",
+      "title": "Computer System Engineering",
+      "provider": "MIT OpenCourseWare",
+      "source_type": "university-courseware",
+      "license": "CC BY-NC-SA",
+      "teaches_skills": ["SK-012", "SK-013", "SK-014", "SK-015"],
+      "matching_careers": ["CR-007", "CR-006"],
+      "url": "https://ocw.mit.edu/courses/6-033-computer-system-engineering-spring-2018/"
+    },
+    {
+      "course_code": "6.431",
+      "title": "Probabilistic Systems Analysis and Applied Probability",
+      "provider": "MIT OpenCourseWare",
+      "source_type": "university-courseware",
+      "license": "CC BY-NC-SA",
+      "teaches_skills": ["SK-022", "SK-021", "SK-026"],
+      "matching_careers": ["CR-003", "CR-010", "CR-005"],
+      "url": "https://ocw.mit.edu/courses/6-041sc-probabilistic-systems-analysis-and-applied-probability-fall-2013/"
+    },
+    {
+      "course_code": "CS50x",
+      "title": "CS50: Introduction to Computer Science",
+      "provider": "Harvard University (OpenCourseWare)",
+      "source_type": "university-courseware",
+      "license": "CC BY-NC-SA",
+      "teaches_skills": ["SK-001", "SK-003", "SK-002", "SK-005", "SK-004", "SK-006", "SK-007", "SK-008", "SK-016"],
+      "matching_careers": ["CR-001", "CR-002", "CR-008"],
+      "url": "https://cs50.harvard.edu/x/"
+    },
+    {
+      "course_code": "CS50P",
+      "title": "CS50's Introduction to Programming with Python",
+      "provider": "Harvard University (OpenCourseWare)",
+      "source_type": "university-courseware",
+      "license": "CC BY-NC-SA",
+      "teaches_skills": ["SK-002", "SK-001", "SK-009", "SK-010"],
+      "matching_careers": ["CR-001", "CR-003"],
+      "url": "https://cs50.harvard.edu/python/"
+    },
+    {
+      "course_code": "CS50W",
+      "title": "CS50's Web Programming with Python and JavaScript",
+      "provider": "Harvard University (OpenCourseWare)",
+      "source_type": "university-courseware",
+      "license": "CC BY-NC-SA",
+      "teaches_skills": ["SK-016", "SK-004", "SK-002", "SK-005", "SK-025", "SK-015"],
+      "matching_careers": ["CR-002", "CR-001"],
+      "url": "https://cs50.harvard.edu/web/"
+    },
+    {
+      "course_code": "CS50AI",
+      "title": "CS50's Introduction to Artificial Intelligence with Python",
+      "provider": "Harvard University (OpenCourseWare)",
+      "source_type": "university-courseware",
+      "license": "CC BY-NC-SA",
+      "teaches_skills": ["SK-018", "SK-017", "SK-019", "SK-020", "SK-002"],
+      "matching_careers": ["CR-004", "CR-005", "CR-003"],
+      "url": "https://cs50.harvard.edu/ai/"
+    },
+    {
+      "course_code": "CS50R",
+      "title": "CS50's Introduction to Programming with R",
+      "provider": "Harvard University (OpenCourseWare)",
+      "source_type": "university-courseware",
+      "license": "CC BY-NC-SA",
+      "teaches_skills": ["SK-027", "SK-021", "SK-023", "SK-001"],
+      "matching_careers": ["CR-003", "CR-008"],
+      "url": "https://cs50.harvard.edu/r/"
+    },
+    {
+      "course_code": "CS101",
+      "title": "Computer Science 101",
+      "provider": "Stanford Online",
+      "source_type": "university-courseware",
+      "license": "Stanford Online (free audit)",
+      "teaches_skills": ["SK-001", "SK-008", "SK-004", "SK-015"],
+      "matching_careers": ["CR-001", "CR-002"],
+      "url": "https://online.stanford.edu/courses/soe-ycscs101-computer-science-101"
+    },
+    {
+      "course_code": "CS106A",
+      "title": "Programming Methodology (Code in Place)",
+      "provider": "Stanford University",
+      "source_type": "university-courseware",
+      "license": "Stanford (free)",
+      "teaches_skills": ["SK-001", "SK-002", "SK-009", "SK-006"],
+      "matching_careers": ["CR-001", "CR-003"],
+      "url": "https://codeinplace.stanford.edu/"
+    },
+    {
+      "course_code": "CS107",
+      "title": "Computer Organization and Systems",
+      "provider": "Stanford Engineering Everywhere",
+      "source_type": "university-courseware",
+      "license": "Stanford Engineering Everywhere (CC)",
+      "teaches_skills": ["SK-003", "SK-011", "SK-012"],
+      "matching_careers": ["CR-009", "CR-007"],
+      "url": "https://see.stanford.edu/"
+    },
+    {
+      "course_code": "ONL-ML-ANDREWNG",
+      "title": "Machine Learning Specialization",
+      "provider": "Coursera (DeepLearning.AI / Stanford)",
+      "source_type": "online-platform",
+      "license": "Reference metadata only - link out; proprietary content not redistributed",
+      "teaches_skills": ["SK-017", "SK-018", "SK-019", "SK-002", "SK-022"],
+      "matching_careers": ["CR-004", "CR-003", "CR-005"],
+      "url": "https://www.coursera.org/specializations/machine-learning-introduction"
+    },
+    {
+      "course_code": "ONL-DL-SPEC",
+      "title": "Deep Learning Specialization",
+      "provider": "Coursera (DeepLearning.AI)",
+      "source_type": "online-platform",
+      "license": "Reference metadata only - link out; proprietary content not redistributed",
+      "teaches_skills": ["SK-019", "SK-017", "SK-020", "SK-002"],
+      "matching_careers": ["CR-004", "CR-005"],
+      "url": "https://www.coursera.org/specializations/deep-learning"
+    },
+    {
+      "course_code": "ONL-GOOGLE-DA",
+      "title": "Google Data Analytics Professional Certificate",
+      "provider": "Coursera (Google)",
+      "source_type": "online-platform",
+      "license": "Reference metadata only - link out; proprietary content not redistributed",
+      "teaches_skills": ["SK-021", "SK-005", "SK-023", "SK-027"],
+      "matching_careers": ["CR-003", "CR-008"],
+      "url": "https://www.coursera.org/professional-certificates/google-data-analytics"
+    },
+    {
+      "course_code": "ONL-IBM-CYBER",
+      "title": "IBM Cybersecurity Analyst Professional Certificate",
+      "provider": "Coursera (IBM)",
+      "source_type": "online-platform",
+      "license": "Reference metadata only - link out; proprietary content not redistributed",
+      "teaches_skills": ["SK-015", "SK-013", "SK-012"],
+      "matching_careers": ["CR-006", "CR-007"],
+      "url": "https://www.coursera.org/professional-certificates/ibm-cybersecurity-analyst"
+    },
+    {
+      "course_code": "ONL-EDX-6.00.1x",
+      "title": "Introduction to Computer Science and Programming Using Python (MITx)",
+      "provider": "edX (MITx)",
+      "source_type": "online-platform",
+      "license": "edX offering of MIT openly-licensed course; link out, course materials CC at MIT source",
+      "teaches_skills": ["SK-001", "SK-002", "SK-008", "SK-010"],
+      "matching_careers": ["CR-001", "CR-003"],
+      "url": "https://www.edx.org/learn/computer-science/massachusetts-institute-of-technology-introduction-to-computer-science-and-programming-using-python"
+    },
+    {
+      "course_code": "ONL-EDX-6.004x",
+      "title": "Computation Structures (MITx)",
+      "provider": "edX (MITx)",
+      "source_type": "online-platform",
+      "license": "edX offering of MIT openly-licensed course; link out, materials CC at MIT source",
+      "teaches_skills": ["SK-011", "SK-029", "SK-003"],
+      "matching_careers": ["CR-009", "CR-007"],
+      "url": "https://www.edx.org/learn/computer-programming/massachusetts-institute-of-technology-computation-structures-1-digital-circuits"
+    },
+    {
+      "course_code": "ONL-UDACITY-DSA",
+      "title": "Data Structures and Algorithms Nanodegree",
+      "provider": "Udacity",
+      "source_type": "online-platform",
+      "license": "Reference metadata only - link out; proprietary content not redistributed",
+      "teaches_skills": ["SK-006", "SK-007", "SK-002"],
+      "matching_careers": ["CR-001", "CR-010"],
+      "url": "https://www.udacity.com/course/data-structures-and-algorithms-nanodegree--nd256"
+    }
+  ]
+}

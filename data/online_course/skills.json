@@ -1,0 +1,48 @@
+{
+  "metadata": {
+    "description": "Master catalog of computer science skills used to link courses to careers. Skill IDs are stable and referenced by courses.json/course_skill_career_map.json and careers.json.",
+    "generated": "2026-10-11",
+    "modeled_on": [
+      "ACM/IEEE/AAAI CS2023 knowledge areas (reference model for CS topics)",
+      "O*NET skills & knowledge descriptors (CC BY 4.0, US Dept. of Labor)"
+    ],
+    "safety_note": "Skill names are generic descriptors modeled on open sources. No proprietary platform content is reproduced. Content from external sources was rephrased for compliance with licensing restrictions.",
+    "fields": {
+      "skill_id": "Stable identifier (SK-###)",
+      "name": "Human-readable skill name",
+      "category": "CS2023 knowledge area grouping",
+      "type": "foundational | technical | applied | professional"
+    }
+  },
+  "skills": [
+    { "skill_id": "SK-001", "name": "Programming Fundamentals", "category": "Software Development Fundamentals", "type": "foundational" },
+    { "skill_id": "SK-002", "name": "Python Programming", "category": "Programming Languages", "type": "technical" },
+    { "skill_id": "SK-003", "name": "C Programming", "category": "Programming Languages", "type": "technical" },
+    { "skill_id": "SK-004", "name": "JavaScript Programming", "category": "Programming Languages", "type": "technical" },
+    { "skill_id": "SK-005", "name": "SQL & Databases", "category": "Data Management", "type": "technical" },
+    { "skill_id": "SK-006", "name": "Data Structures", "category": "Algorithms and Complexity", "type": "foundational" },
+    { "skill_id": "SK-007", "name": "Algorithm Design & Analysis", "category": "Algorithms and Complexity", "type": "foundational" },
+    { "skill_id": "SK-008", "name": "Computational Thinking", "category": "Software Development Fundamentals", "type": "foundational" },
+    { "skill_id": "SK-009", "name": "Object-Oriented Programming", "category": "Software Development Fundamentals", "type": "technical" },
+    { "skill_id": "SK-010", "name": "Testing & Debugging", "category": "Software Engineering", "type": "applied" },
+    { "skill_id": "SK-011", "name": "Computer Architecture", "category": "Architecture and Organization", "type": "foundational" },
+    { "skill_id": "SK-012", "name": "Operating Systems", "category": "Systems Fundamentals", "type": "foundational" },
+    { "skill_id": "SK-013", "name": "Computer Networks", "category": "Networking and Communication", "type": "technical" },
+    { "skill_id": "SK-014", "name": "Distributed Systems", "category": "Parallel and Distributed Computing", "type": "applied" },
+    { "skill_id": "SK-015", "name": "Cybersecurity", "category": "Security", "type": "applied" },
+    { "skill_id": "SK-016", "name": "Web Development", "category": "Software Engineering", "type": "applied" },
+    { "skill_id": "SK-017", "name": "Machine Learning", "category": "Artificial Intelligence", "type": "applied" },
+    { "skill_id": "SK-018", "name": "Artificial Intelligence Foundations", "category": "Artificial Intelligence", "type": "foundational" },
+    { "skill_id": "SK-019", "name": "Neural Networks & Deep Learning", "category": "Artificial Intelligence", "type": "applied" },
+    { "skill_id": "SK-020", "name": "Natural Language Processing", "category": "Artificial Intelligence", "type": "applied" },
+    { "skill_id": "SK-021", "name": "Data Analysis & Statistics", "category": "Mathematical and Statistical Foundations", "type": "foundational" },
+    { "skill_id": "SK-022", "name": "Probability & Statistics", "category": "Mathematical and Statistical Foundations", "type": "foundational" },
+    { "skill_id": "SK-023", "name": "Data Visualization", "category": "Data Management", "type": "applied" },
+    { "skill_id": "SK-024", "name": "Software Engineering Practices", "category": "Software Engineering", "type": "professional" },
+    { "skill_id": "SK-025", "name": "Cloud & Scalability", "category": "Systems Fundamentals", "type": "applied" },
+    { "skill_id": "SK-026", "name": "Discrete Mathematics", "category": "Mathematical and Statistical Foundations", "type": "foundational" },
+    { "skill_id": "SK-027", "name": "R Programming", "category": "Programming Languages", "type": "technical" },
+    { "skill_id": "SK-028", "name": "Problem Solving", "category": "Professional Competencies", "type": "professional" },
+    { "skill_id": "SK-029", "name": "Digital Logic & Hardware Design", "category": "Architecture and Organization", "type": "foundational" }
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "metadata": {
+    "description": "Computer science career paths mapped to the skills they require. Used to recommend careers from a student's completed courses (via the skills those courses teach) and to identify skill gaps.",
+    "generated": "2026-10-11",
+    "source": "Career definitions and skill associations modeled on O*NET occupation data (CC BY 4.0, U.S. Department of Labor). Occupation codes (SOC/O*NET-SOC) referenced where applicable.",
+    "safety_note": "O*NET content is Creative Commons Attribution 4.0; attribution required when surfaced in the app. No personal data included. Content was rephrased for compliance with licensing restrictions.",
+    "fields": {
+      "career_id": "Stable identifier (CR-###)",
+      "title": "Career/occupation title",
+      "onet_soc_code": "O*NET-SOC occupation code (reference)",
+      "description": "Short, paraphrased role summary",
+      "required_skills": "Core skills expected (skill_id references skills.json)",
+      "recommended_skills": "Skills that strengthen candidacy but are not strictly required",
+      "outlook": "Qualitative demand note"
+    }
+  },
+  "careers": [
+    {
+      "career_id": "CR-001",
+      "title": "Software Developer / Engineer",
+      "onet_soc_code": "15-1252.00",
+      "description": "Designs, builds, and maintains software applications and systems.",
+      "required_skills": ["SK-001", "SK-006", "SK-007", "SK-009", "SK-010", "SK-024"],
+      "recommended_skills": ["SK-002", "SK-004", "SK-005", "SK-016", "SK-025"],
+      "outlook": "High demand"
+    },
+    {
+      "career_id": "CR-002",
+      "title": "Web Developer",
+      "onet_soc_code": "15-1254.00",
+      "description": "Builds and maintains websites and web applications, front-end and back-end.",
+      "required_skills": ["SK-004", "SK-005", "SK-016", "SK-010"],
+      "recommended_skills": ["SK-002", "SK-024", "SK-025", "SK-015"],
+      "outlook": "High demand"
+    },
+    {
+      "career_id": "CR-003",
+      "title": "Data Scientist",
+      "onet_soc_code": "15-2051.00",
+      "description": "Extracts insight from data using statistics, programming, and machine learning.",
+      "required_skills": ["SK-002", "SK-021", "SK-022", "SK-017", "SK-023"],
+      "recommended_skills": ["SK-005", "SK-019", "SK-020", "SK-027"],
+      "outlook": "High demand"
+    },
+    {
+      "career_id": "CR-004",
+      "title": "Machine Learning Engineer",
+      "onet_soc_code": "15-1221.00",
+      "description": "Designs, trains, and deploys machine learning models in production systems.",
+      "required_skills": ["SK-002", "SK-017", "SK-018", "SK-019", "SK-007"],
+      "recommended_skills": ["SK-020", "SK-021", "SK-022", "SK-025"],
+      "outlook": "Very high demand"
+    },
+    {
+      "career_id": "CR-005",
+      "title": "AI Research Engineer",
+      "onet_soc_code": "15-1221.00",
+      "description": "Advances AI methods through research, experimentation, and prototyping.",
+      "required_skills": ["SK-018", "SK-017", "SK-019", "SK-007", "SK-022"],
+      "recommended_skills": ["SK-020", "SK-002", "SK-026"],
+      "outlook": "Growing demand"
+    },
+    {
+      "career_id": "CR-006",
+      "title": "Cybersecurity Analyst",
+      "onet_soc_code": "15-1212.00",
+      "description": "Protects systems and networks by detecting, preventing, and responding to threats.",
+      "required_skills": ["SK-015", "SK-013", "SK-012", "SK-003"],
+      "recommended_skills": ["SK-014", "SK-024", "SK-025"],
+      "outlook": "Very high demand"
+    },
+    {
+      "career_id": "CR-007",
+      "title": "Systems / Infrastructure Engineer",
+      "onet_soc_code": "15-1241.00",
+      "description": "Designs and operates computing infrastructure, servers, and networks.",
+      "required_skills": ["SK-011", "SK-012", "SK-013", "SK-014"],
+      "recommended_skills": ["SK-015", "SK-025", "SK-003"],
+      "outlook": "Steady demand"
+    },
+    {
+      "career_id": "CR-008",
+      "title": "Database Administrator / Data Engineer",
+      "onet_soc_code": "15-1242.00",
+      "description": "Designs, builds, and maintains data storage, pipelines, and query systems.",
+      "required_skills": ["SK-005", "SK-006", "SK-021", "SK-025"],
+      "recommended_skills": ["SK-002", "SK-023", "SK-014"],
+      "outlook": "High demand"
+    },
+    {
+      "career_id": "CR-009",
+      "title": "Hardware / Embedded Systems Engineer",
+      "onet_soc_code": "17-2061.00",
+      "description": "Designs digital hardware and software for embedded and computing devices.",
+      "required_skills": ["SK-029", "SK-011", "SK-003"],
+      "recommended_skills": ["SK-012", "SK-013"],
+      "outlook": "Steady demand"
+    },
+    {
+      "career_id": "CR-010",
+      "title": "Algorithms / Research Scientist",
+      "onet_soc_code": "15-1221.00",
+      "description": "Develops and analyzes advanced algorithms for computationally hard problems.",
+      "required_skills": ["SK-007", "SK-006", "SK-026", "SK-022"],
+      "recommended_skills": ["SK-017", "SK-014"],
+      "outlook": "Specialized demand"
+    }
+  ]
+}
